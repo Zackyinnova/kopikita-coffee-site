@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background-color: #F4F4F5;
+    font-size: 16px;
+}
+
+.navbar-container{
+    border: 1px solid #E5E5E5;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+    background-color: white;
+}
+
+.title-brand p{
+    font-family: "Raleway", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.nav-content{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-weight: 400;
+}
+
+.nav{
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+}
+
+.nav:hover{
+    border-bottom: 3px solid #22C45E;
+}
+
+.section-start{
+    width: 100%;
+    aspect-ratio: 16 / 6; /* mirip hero banner */
+    overflow: hidden;
+    position: relative; /* penting! */
+}
+
+.section-start img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text{
+    position: absolute;
+    top: 50%;
+    left: 90px;
+    transform: translateY(-50%);
+    max-width: 500px;
+    z-index: 2;
+}
+
+.head-hero{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.hero-text h2{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+/* deskripsi */
+.hero-text p{
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+}
+
+@media(max-width:600px){
+    .nav-content{
+        display: none;
+    }
+
+    .section-start{
+        flex-direction: column;
+        height: auto;
+        border: 1px solid black;
+    }
+
+    .section-start img{
+
+    }
+
+
+    .hero-text{
+        border: 1px solid black;
+    }
+
+    .hero-text h2{
+        font-size: 26px;
+    }
+
+    .hero-text p{
+        font-size: 14px;
+    }
+}
+
+
+
