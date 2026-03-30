@@ -86,6 +86,57 @@ body{
     color: #444;
 }
 
+.section-product{
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.head-product{
+    border: 1px solid black;
+    font-size: 32px;
+    font-weight: 600;
+    color: #22C45E;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.container-product{
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+    padding: 40px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card-product{
+    border: 1px solid black;
+    width: 260px;
+    height: 350px;
+}
+
+.card-product img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.text-card{
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
 @media(max-width:600px){
     .nav-content{
         display: none;
@@ -94,24 +145,33 @@ body{
     .section-start{
         flex-direction: column;
         height: auto;
-        border: 1px solid black;
     }
-
-    .section-start img{
-
-    }
-
 
     .hero-text{
-        border: 1px solid black;
+        position: absolute;
+        left: 15px;
+        bottom: 20px;
+        right: 40%; /* ini kunci 🔥 */
+    }
+
+    .head-hero{
+        font-size: 10px;
     }
 
     .hero-text h2{
-        font-size: 26px;
+        font-size: 18px;
+        margin: 0 0 5px 0;
+        padding-right: 30px;
+        line-height: 1.2;
+
+
     }
 
     .hero-text p{
-        font-size: 14px;
+        font-size: 8px;
+        margin: 0;
+        line-height: 1.4;
+
     }
 }
 
