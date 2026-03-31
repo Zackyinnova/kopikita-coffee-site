@@ -121,6 +121,7 @@ body{
     background-color: #F5F1EC;
 }
 
+
 .label{
     font-size: 12px;
     letter-spacing: 2px;
@@ -155,6 +156,10 @@ body{
     border: 1px solid #E5E5E5;
     background-color: white;
     border-radius: 10px;
+}
+
+.card-product:hover{
+    border: 1px solid #4d3838;
 }
 
 .img-card img{
@@ -231,7 +236,14 @@ body{
     padding: 10px;
     text-align: center;
     color: white;
+    border: 1px solid transparent;
     border-radius: 12px;
+}
+
+.button-addcart button:hover{
+    border: 1px solid #3B2F2F;
+    background-color: #524848;
+    cursor: pointer;
 }
 
 
