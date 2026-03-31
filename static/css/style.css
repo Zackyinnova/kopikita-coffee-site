@@ -17,16 +17,16 @@ body{
     border: 1px solid #E5E5E5;
     display: flex;
     justify-content: space-around;
-    padding: 20px 0px;
+    padding: 14px 0px;
     background-color: white;
 
 }
 
-.title-brand p{
-    font-family: "Raleway", sans-serif;
-    font-size: 30px;
-    font-weight: 700;
+.title-brand img{
+    width: 150px;
+    height: auto;
 }
+
 
 .nav-content{
     display: flex;
@@ -91,7 +91,7 @@ body{
 }
 
 .section-product{
-    border: 1px solid black;
+
     width: 100%;
     display: flex;
     justify-content: center;
@@ -100,7 +100,7 @@ body{
 }
 
 .head-product{
-    border: 1px solid black;
+    border: 1px solid #E5E5E5;
     font-size: 32px;
     font-weight: 600;
     color: #3B2F2F;
@@ -110,7 +110,6 @@ body{
 }
 
 .container-product{
-    border: 1px solid black;
     width: 100%;
     height: auto;
     padding: 40px 0px;
@@ -119,6 +118,7 @@ body{
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+    background-color: #F5F1EC;
 }
 
 .label{
@@ -153,6 +153,7 @@ body{
     display: flex;
     flex-direction: column;
     border: 1px solid #E5E5E5;
+    background-color: white;
     border-radius: 10px;
 }
 
@@ -173,6 +174,7 @@ body{
     flex: 3;
     font-weight: 500;
     padding: 10px;
+    flex-grow: 1;
 }
 
 .price-card{
@@ -204,6 +206,15 @@ body{
     display: flex;
     align-items: center;
     width: 100%;
+    text-overflow: ellipsis;
+    
+}
+
+.buy-count p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
 }
 
 .button-addcart{
@@ -273,6 +284,12 @@ body{
         height: auto;
     }
 
+    .buy-count{
+        min-width: 0; /* ini penting di flex */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .ic--round-star {
