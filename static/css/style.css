@@ -418,6 +418,76 @@ body{
     text-align: justify;
 }
 
+.section-footer{
+    background-color: #111;
+    border: 1px solid white;
+    display: flex;
+    height: 300px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: white;
+    padding: 30px 0px;
+    
+}
+
+.container-collab{
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+    gap: 20px;
+
+}
+
+.header-collab{
+    text-align: center;
+    width: 80%;
+}
+
+.form-collab{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    gap: 10px;
+    width: 50%;
+}
+
+.form-collab input{
+    all: unset;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    padding-left: 6px ;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    color: black;
+}
+
+.form-collab button{
+    all: unset;
+    width: 100%;
+    text-align: center;
+    padding: 4px 6px;
+    color: #fff;
+    border-radius: 8px;
+    background-color: #6B4F4F;
+}
+
+
+
+.Container-footer{
+    width: 40%;
+    border: 1px solid white
+}
+
 
 
 
@@ -510,7 +580,6 @@ body{
         max-width: 320px; /* atau sesuai design */
         display: flex;
         justify-content: left;
-
         gap: 10px;
 
     }
