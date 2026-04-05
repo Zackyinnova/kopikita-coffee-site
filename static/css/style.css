@@ -322,17 +322,20 @@ body{
 }
 
 .section-review{
-    border: 1px solid black;
+    border: 1px solid #E5E5E5;
     height: 400px;
     padding: 30px 0px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #F5F1EC;
+    
 }
 
 .header-review{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     gap: 6px;
     height: auto;
     align-items: center;
@@ -341,27 +344,79 @@ body{
 
 .star-review{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    gap: 4px;
+}
+
+.star-review p {
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .header-review h3 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 500;
 }
 
 .container-cardreview{
-    border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-
 }
 
 .card-review{
-    border: 1px solid black;
-    width: 200px;
-    height: 200px;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    background-color: white;
+    width: 260px;
+    height: 240px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.profil-container{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+.img-review img{
+    width:  60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.header-profil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 140px;
+}
+
+.name-profil p{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.star-content{
+    display: flex;
+    justify-content: left;
+}
+
+
+.review-content{
+    width: 100%;
+    
 }
 
 
@@ -405,7 +460,6 @@ body{
     .container-product{
         display: flex;
         width: 100%;
-
         align-items: center;
     }
 
@@ -457,8 +511,17 @@ body{
 
 .ic--round-star1 {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffc400' d='m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z'/%3E%3C/svg%3E");
+}
+
+.ic--round-star2 {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffc400' d='m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z'/%3E%3C/svg%3E");
