@@ -323,7 +323,7 @@ body{
 
 .section-review{
     border: 1px solid #E5E5E5;
-    height: 400px;
+    height: auto;
     padding: 30px 0px;
     display: flex;
     flex-direction: column;
@@ -363,7 +363,6 @@ body{
 .container-cardreview{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
@@ -416,7 +415,7 @@ body{
 
 .review-content{
     width: 100%;
-    
+    text-align: justify;
 }
 
 
@@ -489,6 +488,41 @@ body{
     .content-about{
         width: 90%;
     }
+
+    .review-wrapper{
+        width: 300px; /* sesuaikan sama card */
+        height: auto;
+        overflow-y: hidden;
+        margin: auto;
+        
+    }   
+
+    .header-review{
+        text-align: center;
+    }
+
+    .header-review h3{
+        font-size: 24px;
+    }
+
+    .container-cardreview{
+        width: 100%;
+        max-width: 320px; /* atau sesuai design */
+        display: flex;
+        justify-content: left;
+
+        gap: 10px;
+
+    }
+
+    .card-review{
+        min-width: 90%;
+    }
+
+    .profil-container{
+        justify-content: left;
+    }
+
 }
 
 .ic--round-star {
