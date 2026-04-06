@@ -516,9 +516,7 @@ body{
 
 .overlay-content-footer{
     padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    display: none;
 }
 
 

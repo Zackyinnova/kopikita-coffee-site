@@ -20,3 +20,24 @@ textAbout.forEach((item) => {
         }
     });
 });
+
+const ContentFooter = document.querySelectorAll(".content-footer");
+
+ContentFooter.forEach((item) =>{
+    item.addEventListener("click", ()=>{
+
+        const overlayFooter = item.querySelector(".overlay-content-footer");
+
+        document.querySelectorAll(".overlay-content-footer").forEach((el) =>{
+            if(el !== overlayFooter){
+                el.style.display = "none";
+            }
+        })
+
+        if(overlayFooter.style.display === "block"){
+            overlayFooter.style.display = "none";
+        }else{
+            overlayFooter.style.display = "block";
+        }
+    });
+});
