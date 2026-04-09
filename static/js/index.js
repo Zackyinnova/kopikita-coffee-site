@@ -41,3 +41,18 @@ ContentFooter.forEach((item) =>{
         }
     });
 });
+
+const overlayNav = document.getElementById("overlay-navbar");
+const burgerMenu = document.getElementById("icon-burger-menu");
+
+burgerMenu.addEventListener("click", () =>{
+    overlayNav.style.display = "flex";
+});
+
+overlayNav.addEventListener("click", (e) =>{
+    if(e.target === overlayNav){
+        overlayNav.style.display = "none";
+    }
+});
+
+
