@@ -534,6 +534,38 @@ body{
     display: none;
 }
 
+/**Untuk shoppage.html**/
+.header-shop{
+    padding: 10px 30vh;
+    border: 1px solid black;
+
+}
+
+.container-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #E5E5E5;
+    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.left-header-shop{
+    display: flex;
+    align-items: center;
+}
+
+.left-header-shop h1{
+    font-size: 60px;
+}
+
+.right-header-shop img{
+    width: 600px;
+    height: auto;
+    border-radius: 8px;
+}
+
 
 
 
