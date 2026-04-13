@@ -536,23 +536,25 @@ body{
 
 /**Untuk shoppage.html**/
 .header-shop{
-    padding: 10px 30vh;
     border: 1px solid #E5E5E5;
     display: flex;
     background-color: #F5F1EC;
     flex-direction: column;
     gap: 10px;
-
+    justify-content: center;
+    align-items: center;
 }
 
 .container-header{
     display: flex;
+    width: 80%;
     flex-direction: row;
     justify-content: space-between;
     border: 1px solid #E5E5E5;
     padding: 10px 30px;
     border-radius: 8px;
     background-color: white;
+    flex-wrap: wrap;
 }
 
 .left-header-shop{
@@ -574,12 +576,18 @@ body{
     display: flex;
     gap: 10px;
     padding: 10px 0px;
+    width: 80%;
 }
 
 .content-nav-shop{
     border: 1px solid #8A8A8A;
     padding: 10px 40px;
     border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .content-nav-shop p {
@@ -771,6 +779,51 @@ body{
         padding-left: 20px;
     }
     
+
+    /*Shoppage.html*/
+
+
+    .header-shop{
+        width: 100%;
+
+    }
+
+    .container-header{
+        width: 100%;
+        min-width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    .content-header-shop h1{
+        font-size: 35px;
+    }
+
+    .right-header-shop{
+        width: 100%;
+    }
+
+    .right-header-shop img{
+        width: 100%;
+        height: auto;
+        
+    } 
+
+    .nav-shop{
+        width: 100%;
+        padding: 10px 10px;
+        overflow-y: hidden;
+    }
+
+    .content-nav-shop{
+        width: auto;
+        padding: 8px 20px;
+        white-space: nowrap;
+    }
+
+    .content-nav-shop p{
+        font-size: 12px;
+    }
 
 }
 
