@@ -166,7 +166,7 @@ body{
     height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .img-card{
@@ -611,20 +611,45 @@ body{
 }
 
 .container-product-page{
-    border: 1px solid red;
     width: 80%;
     height: auto;
-    padding: 20px 20px;
+    padding: 20px 0px;
 }
 
 .grid-product{
-    display: flex;
-    gap: 30px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .card-product-page{
+    width: auto;
+}
 
+.container-taste{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.color-taste{
+    display: flex;
+    gap: 10px;
+}
+
+.main-color{
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+}
+
+.text-taste{
+    color: #8A8A8A;
+    font-weight: 500;
 }
 
 .card-product-page button{
@@ -638,6 +663,8 @@ body{
     height: auto;
     font-weight: 500;
 }
+
+
 
 
 
