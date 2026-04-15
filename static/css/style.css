@@ -174,6 +174,10 @@ body{
     display: flex;
 }
 
+.text-card span{
+    color: #2B1F1F;
+}
+
 .text-card{
     flex: 3;
     font-weight: 700;
@@ -191,7 +195,7 @@ body{
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #8A8A8A;
+    color: #7A6A5F;
     font-size: 12px;
     font-weight: 400;
 }
@@ -602,7 +606,6 @@ body{
 }
 
 .section-product-page{
-    border: 1px solid black;
     width: 100%;
     height: auto;
     display: flex;
@@ -627,6 +630,14 @@ body{
 
 .card-product-page{
     width: auto;
+    padding: 20px;
+    border: 1px solid #8A8A8A;
+    border-radius: 8px; ;
+}
+
+.card-product-page:hover{
+    background-color: #D8CFC4;
+    border: 1px solid #B7A79A;
 }
 
 .container-taste{
@@ -645,11 +656,40 @@ body{
     width: 24px;
     height: 24px;
     border-radius: 100%;
+    cursor: pointer;
+
+}
+
+.content-taste{
+    color: #8A8A8A;
+    font-weight: 500;
+}
+
+.content-taste p {
+    color: #5A4A42;
 }
 
 .text-taste{
-    color: #8A8A8A;
-    font-weight: 500;
+    display: none;
+}
+
+.img-card{
+    overflow: hidden; /* 🔥 penting */
+    position: relative; /* buat layering gambar */
+}
+
+.img-product{
+    width: 100%;
+    display: none;
+    transition: transform 0.4s ease;
+}
+
+.card-product:hover .img-product{
+    transform: scale(1.1);
+}
+
+.show{
+    display: flex;
 }
 
 .card-product-page button{
@@ -663,6 +703,8 @@ body{
     height: auto;
     font-weight: 500;
 }
+
+
 
 
 
