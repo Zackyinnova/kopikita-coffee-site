@@ -948,6 +948,7 @@ body{
 
 
     .grid-product{
+        padding-left: 14px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1px;
@@ -955,6 +956,7 @@ body{
     }
 
     .card-product-page{
+        padding: 10px 10px;
         width: 90%;
         display: flex;
         flex-direction: column;
