@@ -620,9 +620,13 @@ body{
 }
 
 .grid-product{
-    display: grid;
+    display: none;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+}
+
+.open{
+    display: grid;
 }
 
 .card-product-page{
@@ -699,6 +703,8 @@ body{
     height: auto;
     font-weight: 500;
 }
+
+
 
 
 

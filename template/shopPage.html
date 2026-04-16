@@ -40,19 +40,19 @@
         </div>
 
         <div class="nav-shop">
-            <div class="content-nav-shop active" id="button-nav-shop">
+            <div class="content-nav-shop active" id="button-nav-shop" data-target="all">
                 <p>all Product</p>
             </div>
 
-            <div class="content-nav-shop" id="button-nav-shop">
+            <div class="content-nav-shop" id="button-nav-shop" data-target="ground">
                 <p>Ground Coffe</p>
             </div>
 
-            <div class="content-nav-shop" id="button-nav-shop">
+            <div class="content-nav-shop" id="button-nav-shop" data-target="cold">
                 <p>Cold Brew</p>
             </div>
 
-            <div class="content-nav-shop" id="button-nav-shop">
+            <div class="content-nav-shop" id="button-nav-shop" data-target="drip">
                 <p>Drip Coffe Pack</p>
             </div>
         </div>
@@ -60,7 +60,7 @@
 
     <div class="section-product-page">
         <div class="container-product-page">
-            <div class="grid-product">
+            <div class="grid-product open" id="all">
                 <div class="card-product-page">
                     <div class="img-card">
                         <img src="/static/img/img-product1/rasa-alpukat.jpg" class="img-product show ">
@@ -252,7 +252,56 @@
 
                     <button>Add To Chart</button>
                 </div>
-                
+            </div>
+
+            <div class="grid-product" id="ground">
+                <div class="card-product-page">
+                    <div class="img-card">
+                        <img src="/static/img/img-product1/rasa-alpukat.jpg" class="img-product show ">
+                        <img src="/static/img/img-product1/rasa-gulaaren.jpg" class="img-product ">
+                        <img src="/static/img/img-product1/rasa-caramel.jpg" class="img-product">
+                    </div>
+
+                    <div class="text-card">
+                        <span>Signature Series</span>
+                        <div class="price-card">
+                            <p>Rp 90.000,00</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="icon-star">
+                                <span class="ic--round-star"></span>
+                                <div class="review-count">
+                                    4.9
+                                </div>
+                            </div>
+
+                            <div class="line-review">
+                                <p> | </p>
+                            </div>
+
+                            <div class="buy-count">
+                                <P> 100+ items sold</P>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-taste">
+                        <div class="content-taste" id="text-taste">
+                            <p class="text-taste show">Original</p>
+                            <P class="text-taste">Gula Aren</P>
+                            <P class="text-taste">Caramel Bliss</P>
+                        </div>
+
+                        <div class="color-taste">
+                            <div class="main-color"  style="background-color: #76734B;"></div>
+                            <div class="main-color"  style="background-color: #563C2B;"></div>
+                            <div class="main-color"  style="background-color: #C68E17;"></div>
+                        </div>
+                    </div>
+
+                    <button>Add To Chart</button>
+                </div>
             </div>
         </div>
     </div>

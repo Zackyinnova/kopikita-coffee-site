@@ -1,11 +1,23 @@
 const buttonNavShop = document.querySelectorAll('.content-nav-shop');
+const gridProduct = document.querySelectorAll('.grid-product');
 
+buttonNavShop.forEach((btn) => {
+    btn.addEventListener('click', () => {
 
-buttonNavShop.forEach((btn, index) =>{
-    btn.addEventListener('click', () =>{
-        buttonNavShop.forEach( b => b.classList.remove('active'));
-
+        buttonNavShop.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+
+
+        const target = btn.getAttribute('data-target');
+
+
+        gridProduct.forEach(grid => grid.classList.remove('open'));
+
+        const targetGrid = document.getElementById(target);
+        if(targetGrid){
+            targetGrid.classList.add('open');
+        }
+
     });
 });
 
