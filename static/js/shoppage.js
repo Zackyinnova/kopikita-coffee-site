@@ -10,20 +10,28 @@ buttonNavShop.forEach((btn, index) =>{
 });
 
 
-const buttonColor = document.querySelectorAll(".main-color");
-const textColor = document.querySelectorAll(".text-taste");
-const imgProduct = document.querySelectorAll(".img-product")
+const cards = document.querySelectorAll('.card-product-page');
 
-buttonColor.forEach((buttonColor, index) => {
-    buttonColor.addEventListener('click', () =>{
+cards.forEach(card => {
+    const buttonColor = card.querySelectorAll(".main-color");
+    const textColor = card.querySelectorAll(".text-taste");
+    const imgProduct = card.querySelectorAll(".img-product");
 
-        textColor.forEach (textColor => textColor.classList.remove('show'));
+    buttonColor.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
 
-        textColor[index].classList.add('show');
+            // reset text
+            textColor.forEach(text => text.classList.remove('show'));
+            textColor[index].classList.add('show');
 
-        imgProduct.forEach(imgProduct => imgProduct.classList.remove('show'));
-        imgProduct[index].classList.add('show');
+            // reset image
+            imgProduct.forEach(img => img.classList.remove('show'));
+            imgProduct[index].classList.add('show');
+
+        });
     });
 });
+
+
 
 

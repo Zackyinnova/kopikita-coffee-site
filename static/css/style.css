@@ -622,14 +622,10 @@ body{
 .grid-product{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    flex-direction: row;
-    align-items: center;
     gap: 40px;
-    flex-wrap: wrap;
 }
 
 .card-product-page{
-    width: auto;
     padding: 20px;
     border: 1px solid #8A8A8A;
     border-radius: 8px; ;
@@ -660,13 +656,9 @@ body{
 
 }
 
-.content-taste{
-    color: #8A8A8A;
-    font-weight: 500;
-}
-
 .content-taste p {
     color: #5A4A42;
+    font-weight: 600;
 }
 
 .text-taste{
@@ -674,22 +666,26 @@ body{
 }
 
 .img-card{
+    width: 100%;
     overflow: hidden; /* 🔥 penting */
     position: relative; /* buat layering gambar */
+    aspect-ratio: 1 / 1
 }
 
 .img-product{
     width: 100%;
+    height: 100%;
     display: none;
+    object-fit: cover;
     transition: transform 0.4s ease;
 }
 
-.card-product:hover .img-product{
+.card-product-page:hover .img-product{
     transform: scale(1.1);
 }
 
 .show{
-    display: flex;
+    display: block;
 }
 
 .card-product-page button{
@@ -716,6 +712,11 @@ body{
 
 
 @media(max-width:600px){
+
+    *{
+        box-sizing: border-box;
+    }
+    
     .nav-content{
         display: none;
     }
@@ -934,6 +935,30 @@ body{
 
     .content-nav-shop p{
         font-size: 12px;
+    }
+
+    .section-product-page{
+        width: 100%;
+    }
+
+    .container-product-page{
+        width: 100%;
+
+    }
+
+
+    .grid-product{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        row-gap: 10px;
+    }
+
+    .card-product-page{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
 }
