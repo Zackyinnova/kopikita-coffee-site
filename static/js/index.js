@@ -45,13 +45,13 @@ ContentFooter.forEach((item) =>{
 const overlayNav = document.getElementById("overlay-navbar");
 const burgerMenu = document.getElementById("icon-burger-menu");
 
-burgerMenu.addEventListener("click", () =>{
-    overlayNav.style.display = "flex";
+burgerMenu.addEventListener("click", () => {
+    overlayNav.classList.add("active");
 });
 
-overlayNav.addEventListener("click", (e) =>{
-    if(e.target === overlayNav){
-        overlayNav.style.display = "none";
+overlayNav.addEventListener("click", (e) => {
+    if (e.target === overlayNav) {
+        overlayNav.classList.remove("active");
     }
 });
 

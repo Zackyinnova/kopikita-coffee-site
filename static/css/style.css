@@ -550,9 +550,6 @@ a{
     display: none;
 }
 
-.overlay-navbar{
-    display: none;
-}
 
 /**Untuk shoppage.html**/
 .header-shop{
@@ -880,6 +877,10 @@ a{
         background-color: rgba(0,0,0,0.55);
         width: 100%;
         height: 100%;
+    }
+
+    .overlay-navbar.active {
+        display: flex;
     }
 
     .container-overlay{
