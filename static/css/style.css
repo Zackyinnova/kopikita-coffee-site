@@ -717,16 +717,9 @@ a{
     font-weight: 500;
 }
 
-
-
-
-
-
-
-
-
-
-
+.overlay-navbar{
+    display: none;
+}
 
 
 
@@ -879,7 +872,6 @@ a{
         height: 100%;
     }
 
-    
 
     .container-overlay{
         background-color: #F3F4F6;
