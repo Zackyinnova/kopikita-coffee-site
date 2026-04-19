@@ -879,9 +879,7 @@ a{
         height: 100%;
     }
 
-    .overlay-navbar.active {
-        display: flex;
-    }
+    
 
     .container-overlay{
         background-color: #F3F4F6;
