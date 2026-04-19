@@ -192,7 +192,7 @@ a{
 .text-card{
     flex: 3;
     font-weight: 700;
-    padding: 10px 0px;
+    padding: 10px 10px;
     flex-grow: 1;
 }
 
