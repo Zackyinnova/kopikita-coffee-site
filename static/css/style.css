@@ -550,6 +550,10 @@ a{
     display: none;
 }
 
+.overlay-navbar{
+    display: none;
+}
+
 /**Untuk shoppage.html**/
 .header-shop{
     border: 1px solid #E5E5E5;
