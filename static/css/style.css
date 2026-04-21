@@ -960,12 +960,17 @@ a{
     }
 
 
+
     .grid-product{
         padding-left: 14px;
-        display: grid;
+        display: none;
         grid-template-columns: repeat(2, 1fr);
         gap: 1px;
         row-gap: 10px;
+    }
+
+    .open{
+        display: grid;
     }
 
     .card-product-page{
