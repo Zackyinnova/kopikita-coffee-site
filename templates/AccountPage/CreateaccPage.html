@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../static/css/style.css?v=2">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="container-login">
     <div class="content-login">
         <div class="logo-shop">
-            <img src="/static/img/logo v2.png" alt="">
+            <img src="{{ url_for('static', filename='img/logo v2.png') }}g" alt="">
         </div>
 
         <div class="form-login">
-            <form>
+            <form action="/CreateAccount" method="POST">
                 <div class="header-login">
-                    <h3>Sign In</h3>
-                    <p>Please enter your email and password to continue</p>
+                    <h3>Sign up</h3>
+                    <p>Create a new account to continue</p>
                 </div>
 
                 <div class="main-login">
-                    <input type="input" placeholder="email">
-                    <input type="password" placeholder="password">
+                    <input type="input" placeholder="email" name="input_email">
+                    <input type="input" placeholder="Username" name="input_username">
+                    <input type="password" placeholder="password" name="input_password">
                     <button type="submit">Sign in</button>
                 </div>
             </form>

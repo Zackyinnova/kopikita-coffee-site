@@ -1,0 +1,22 @@
+Commit Message 
+
+1. Feat     = menambahkan fitur baru
+
+2. Fix      = Memperbaiki Bug
+
+3. Docs     = Update dokumentasi
+
+4. Style    = Perubahan Tampilan
+
+5. refactor = Perubahan Stuktur code
+
+6. perf     = Optimasi Peforma
+
+7. chore    = Maintance/ hasil kecil
+
+
+Contoh : 
+
+1. Feat:midtrans            = menambah payment gateway
+2. Fix:eror login           = Memperbaiki eror di login
+3. style: update navbar     = mengupdate tampilan navbar

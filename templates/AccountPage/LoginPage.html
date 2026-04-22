@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="container-login">
+    <div class="content-login">
+        <div class="logo-shop">
+            <img src="/static/img/logo v2.png" alt="">
+        </div>
+
+        <div class="form-login">
+            <form>
+                <div class="header-login">
+                    <h3>Sign in</h3>
+                    <p>Please enter your email and password to continue</p>
+                </div>
+
+                <div class="main-login">
+                    <input type="input" placeholder="email" name="input_email">
+                    <input type="password" placeholder="password" name="input_password">
+                    <button type="submit">Sign in</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="signup-text">
+            <P>Dont Have an Account? 
+                <span>
+                    <a href="{{ url_for('signupPage') }}">
+                        Sign up
+                    </a>
+                </span>
+            </P>
+        </div>
+    </div>
+</body>
+</html>

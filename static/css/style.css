@@ -791,7 +791,7 @@ a{
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .form-login{
@@ -813,7 +813,6 @@ a{
 .main-login input{
     width: 100%;
     padding: 12px 14px;
-    margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
