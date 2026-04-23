@@ -20,6 +20,11 @@
                     <p>Create a new account to continue</p>
                 </div>
 
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+
+
                 <div class="main-login">
                     <input type="input" placeholder="email" name="input_email">
                     <input type="input" placeholder="Username" name="input_username">

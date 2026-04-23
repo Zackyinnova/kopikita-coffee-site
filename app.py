@@ -1,4 +1,5 @@
 import mysql.connector
+import re
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 app = Flask(__name__)
@@ -28,6 +29,20 @@ def SubmitSignup():
     email = request.form['input_email']
     name = request.form['input_username']
     password = request.form['input_password']
+
+    #untuk validasi password
+    if len (password) < 6 :
+        return render_template('AccountPage/CreateaccPage.html',
+                               error = "Password minimal 6 karakter")
+
+    
+    if not re.search("[a-zA-Z]", password):
+        return render_template('AccountPage/CreateaccPage.html',
+                               error="Password harus ada alfabet")
+    
+    if not re.search("[0-9]", password):
+        return render_template('AccountPage/CreateaccPage.html',
+                               error = "Password harus ada angka")
 
     cursor = db.cursor()
     cursor.execute(

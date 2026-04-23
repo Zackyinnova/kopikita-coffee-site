@@ -857,6 +857,15 @@ a{
     font-weight: 600;
 }
 
+.error-message{
+    color: #d8000c;
+    background-color: #ffe5e5;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
 
 
 
