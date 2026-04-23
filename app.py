@@ -1,8 +1,11 @@
 import mysql.connector
 import re
+from flask import session
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 app = Flask(__name__)
+
+app.secret_key = 'rahasia123' 
 
 db = mysql.connector.connect(
     host="localhost",
@@ -87,12 +90,20 @@ def validationAcc():
     user = cursor.fetchone()
 
     if user:
+        session['user_id'] = user['id']
         return redirect(url_for('index'))
     else:
         return render_template(
             'AccountPage/LoginPage.html',
             error = "email atau password salah"
         )
+    
+@app.route('/navAccount')
+def navAccount():
+    if 'user_id' in session:
+        return render_template('AccountPage.html')  # sudah login
+    else:
+        return redirect(url_for('signinpage'))  # belum login
 
 
 

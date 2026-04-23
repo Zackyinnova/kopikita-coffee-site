@@ -866,6 +866,10 @@ a{
     margin-bottom: 15px;
 }
 
+.overlay-navbar{
+    display: none;
+}
+
 
 
 

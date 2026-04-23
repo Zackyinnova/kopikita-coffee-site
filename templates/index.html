@@ -45,7 +45,7 @@
             </div>
 
             <div class="nav">
-                <a href="{{ url_for('signinpage') }}">
+                <a href="{{ url_for('navAccount') }}">
                     <P>Account</P>
                 </a>
             </div>
@@ -614,6 +614,6 @@
         </div>
     </div>
 
-    <script src="static/js/index.js?v=2"></script>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 </html>
