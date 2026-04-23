@@ -10,7 +10,7 @@
 <body class="container-login">
     <div class="content-login">
         <div class="logo-shop">
-            <img src="{{ url_for('static', filename='img/logo v2.png') }}g" alt="">
+            <img src="{{ url_for('static', filename='img/logo v2.png') }}" alt="">
         </div>
 
         <div class="form-login">
@@ -29,13 +29,20 @@
                     <input type="input" placeholder="email" name="input_email">
                     <input type="input" placeholder="Username" name="input_username">
                     <input type="password" placeholder="password" name="input_password">
-                    <button type="submit">Sign in</button>
+                    <button type="submit">Sign up</button>
                 </div>
             </form>
         </div>
 
         <div class="signup-text">
-            <P>Dont Have an Account? <span> Sign up</span></P>
+            <P>Already have an account?  
+                <span> 
+                    <a href="{{ url_for('signinpage') }}">
+                        Sign in
+                    </a>
+                </span>
+            
+            </P>
         </div>
     </div>
 </body>

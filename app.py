@@ -11,13 +11,19 @@ db = mysql.connector.connect(
     database="db_kopikita"
 )
 
+#first page
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/loginpage')
+def signinpage():
     return render_template('AccountPage/LoginPage.html')
 
 @app.route('/signuppage')
 def signupPage():
     return render_template('AccountPage/CreateaccPage.html')
+
     
 
 
@@ -64,7 +70,31 @@ def SubmitSignup():
 
     db.commit()
     cursor.close()
-    return redirect(url_for('index'))
+    return redirect(url_for('signinpage'))
+
+#for validation account if alrd crate an account
+@app.route('/validationAcc', methods=['POST'])
+def validationAcc():
+    cursor = db.cursor(dictionary=True)
+
+    LoginEmail = request.form['login_email']
+    LoginPassword = request.form['login_password']
+
+    cursor.execute("SELECT * FROM tb_users WHERE email=%s AND password=%s",
+                   (LoginEmail,LoginPassword),
+    )
+
+    user = cursor.fetchone()
+
+    if user:
+        return redirect(url_for('index'))
+    else:
+        return render_template(
+            'AccountPage/LoginPage.html',
+            error = "email atau password salah"
+        )
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

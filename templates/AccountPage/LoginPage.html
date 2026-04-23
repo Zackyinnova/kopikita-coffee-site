@@ -10,19 +10,23 @@
 <body class="container-login">
     <div class="content-login">
         <div class="logo-shop">
-            <img src="/static/img/logo v2.png" alt="">
+            <img src="{{ url_for('static', filename='img/logo v2.png') }}" alt="">
         </div>
 
         <div class="form-login">
-            <form>
+            <form action="/validationAcc" method="POST">
                 <div class="header-login">
                     <h3>Sign in</h3>
                     <p>Please enter your email and password to continue</p>
                 </div>
 
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+
                 <div class="main-login">
-                    <input type="input" placeholder="email" name="input_email">
-                    <input type="password" placeholder="password" name="input_password">
+                    <input type="email" placeholder="email" name="login_email">
+                    <input type="password" placeholder="password" name="login_password">
                     <button type="submit">Sign in</button>
                 </div>
             </form>
