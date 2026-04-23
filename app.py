@@ -30,7 +30,7 @@ def SubmitSignup():
     name = request.form['input_username']
     password = request.form['input_password']
 
-    #untuk validasi password
+    #for validation password
     if len (password) < 6 :
         return render_template('AccountPage/CreateaccPage.html',
                                error = "Password minimal 6 karakter")
@@ -45,6 +45,17 @@ def SubmitSignup():
                                error = "Password harus ada angka")
 
     cursor = db.cursor()
+
+    #for cheking email
+    cursor.execute("SELECT * FROM tb_users WHERE email=%s", (email,))
+    existing = cursor.fetchone()
+
+    if existing:
+        return render_template('AccountPage/CreateaccPage.html',
+                               error= "Email sudah digunakan")
+
+
+    #for send data crate account to database
     cursor.execute(
         'INSERT INTO tb_users (email, name, password)'
         'VALUES (%s,%s,%s)',
