@@ -4,8 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 <body>
-    <P>Test aja</P>
+    <div class="navbar-container">
+
+        <div class="icon-burger-menu" id="icon-burger-menu">
+            <span class="iconamoon--menu-burger-horizontal-bold"></span>
+        </div>
+
+        <div class="title-brand">
+            <img src="../static/img/logo v2.png" alt="">
+        </div>
+
+        <div class="nav-content">
+            <div class="nav">
+                <a href="{{ url_for('index') }}">
+                    <P>About Kopi Kita</P>
+                </a>
+            </div>
+
+            <div class="nav">
+                <a href="{{ url_for('shopPage') }}">
+                    <P>Shop</P>
+                </a>
+            </div>
+
+            <div class="nav">
+                <a href="#">
+                    <P>cart</P>
+                </a>
+            </div>
+
+            <div class="nav">
+                <a href="{{ url_for('navAccount') }}">
+                    <P>Account</P>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-accountpage">
+        <div class="container-accountpage">
+
+            <div class="content-accountpage">
+                <div class="title-accountpage">
+                    <p>Profil</p>
+                </div>
+
+                <div class="main-accountpage">
+                    <div class="account-item">
+                        <span class="account-label">Username :</span>
+                        <span class="account-value">
+                            <p>{{ session.name }}</p>
+                            <P>Edit</P>
+                        </span>
+                    </div>
+
+                    <div class="account-item">
+                        <span class="account-label">Email :</span>
+                        <span class="account-value">
+                            <p>{{ session.email }}</p>
+                            <P>Edit</P>
+                        </span>
+                    </div>
+
+                    <div class="account-item">
+                        <span class="account-label">Alamat :</span>
+                        <span class="account-value">
+                            <P>zackyinova</P>
+                            <P>Edit</P>
+                        </span>
+                    </div>
+
+                    <div class="logout">
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-accountpage">
+                <div class="title-accountpage">
+                    <p>History Order</p>
+                </div>
+
+                <div class="main-accountpage">
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

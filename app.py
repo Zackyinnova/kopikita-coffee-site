@@ -95,6 +95,9 @@ def validationAcc():
 
     if user:
         session['user_id'] = user['id']
+        session['name'] = user['name']
+        session['email'] = user['email']
+        
         return redirect(url_for('index'))
     else:
         return render_template(
@@ -108,6 +111,11 @@ def navAccount():
         return render_template('AccountPage.html')  # sudah login
     else:
         return redirect(url_for('signinpage'))  # belum login
+    
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('signinpage'))
 
 
 
