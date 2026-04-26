@@ -20,19 +20,26 @@
 
         <div class="nav-content">
             <div class="nav">
-                <a href="/index.html">
+                <a href="{{ url_for('index') }}">
                     <P>About Kopi Kita</P>
                 </a>
             </div>
 
             <div class="nav">
-                <a href="#">
+                <a href="{{ url_for('shopPage') }}">
                     <P>Shop</P>
                 </a>
             </div>
+
             <div class="nav">
                 <a href="#">
                     <P>cart</P>
+                </a>
+            </div>
+
+            <div class="nav">
+                <a href="{{ url_for('navAccount') }}">
+                    <P>Account</P>
                 </a>
             </div>
         </div>

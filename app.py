@@ -27,6 +27,10 @@ def signinpage():
 def signupPage():
     return render_template('AccountPage/CreateaccPage.html')
 
+@app.route('/shoppage')
+def shopPage():
+    return render_template('shopPage.html')
+
     
 
 
