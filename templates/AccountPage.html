@@ -87,8 +87,19 @@
                         </span>
                     </div>
 
-                    <div class="logout">
-                        <a href="{{ url_for('logout') }}">Logout</a>
+                    
+                    <div class="account-item">
+                        <span class="account-label">Password :</span>
+                        <span class="account-value">
+                            <P>{{ session.get('password') }}</P>
+                            <P>Edit</P>
+                        </span>
+                    </div>
+
+                    <div class="logout-button">
+                        <button>
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        </button>
                     </div>
                 </div>
             </div>

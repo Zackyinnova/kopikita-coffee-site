@@ -79,6 +79,11 @@ def SubmitSignup():
     cursor.close()
     return redirect(url_for('signinpage'))
 
+def sensor_password(password):
+    if len(password) <= 2:
+        return "*" * len(password)
+    return password[0] + "*" * (len(password) - 2) + password[-1]
+
 #for validation account if alrd crate an account
 @app.route('/validationAcc', methods=['POST'])
 def validationAcc():
@@ -97,6 +102,7 @@ def validationAcc():
         session['user_id'] = user['id']
         session['name'] = user['name']
         session['email'] = user['email']
+        session['password'] = sensor_password(user['password'])
         
         return redirect(url_for('index'))
     else:
