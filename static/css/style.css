@@ -893,6 +893,12 @@ a{
     width: 80%;
 }
 
+.main-accountpage.history{
+    height: 500px;
+
+}
+
+
 .title-accountpage p{
     font-size: 30px;
     font-weight: 500;
@@ -902,6 +908,7 @@ a{
     border: 1px solid #E5E5E5;
     background-color: white;
     display: flex;
+    border-radius: 10px;
     margin-top: 20px;
     flex-direction: column;
     padding: 20px 30px;
@@ -1192,6 +1199,21 @@ a{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+
+    /*profil page*/
+    .section-accountpage{
+        height: 100%;
+        width: 100%;
+    }
+
+    .container-accountpage{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
 }
