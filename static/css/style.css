@@ -1216,6 +1216,12 @@ a{
         align-items: center;
     }
 
+    /*login page.html*/
+    .content-login{
+
+        width: 84%;
+        padding: 20px 20px;
+    }
 }
 
 .ic--round-star {
