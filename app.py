@@ -31,9 +31,49 @@ def signupPage():
 def shopPage():
     return render_template('shopPage.html')
 
+@app.route('/addproduct')
+def addproduct():
+    return render_template('submit_product.html')
+
+#form submit product
+@app.route('/add-product', methods=['POST'])
+def add_product():
+    cursor = db.cursor(dictionary=True)
+
+    nama_product = request.form['nama_product']
+    variant = request.form['variant']
+    price = int(request.form['price'].replace(".", ""))
+
+    # cek apakah nama product sudah ada
+    cursor.execute(
+        "SELECT id_merek FROM tb_product WHERE nama_product = %s LIMIT 1",
+        (nama_product,)
+    )
+    existing = cursor.fetchone()
+
+    if existing:
+        id_merek = existing['id_merek']
+    else:
+        id_merek = 1  # default merek, ganti sesuai id merek kamu
+
+    file = request.files['img']
+    filename = file.filename
+    file.save('static/uploads/' + filename)
+
+    cursor.execute(
+        """
+        INSERT INTO tb_product 
+        (id_merek, nama_product, variant, price, img)
+        VALUES (%s, %s, %s, %s, %s)
+        """,
+        (id_merek, nama_product, variant, price, filename)
+    )
+
+    db.commit()
+    cursor.close()
+
+    return "Product berhasil ditambahkan"
     
-
-
 #form submit create account dari page createaccpage.html
 @app.route('/CreateAccount',methods=['POST'])
 def SubmitSignup():

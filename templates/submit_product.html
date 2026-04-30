@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/add-product" method="POST" enctype="multipart/form-data">
+        <input type="text" name="nama_product" placeholder="Nama Product" required>
+
+        <input type="text" name="variant" placeholder="Variant / Rasa" required>
+
+        <input type="text" id="price" name="price" placeholder="Harga" required>
+
+        <input type="file" name="img" required>
+
+        <button type="submit">Tambah Product</button>
+    </form>
+</body>
+</html>
