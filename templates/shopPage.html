@@ -121,13 +121,30 @@
                         </div>
 
                         <div class="color-taste">
-                            <div class="main-color"  style="background-color: #76734B;"></div>
-                            <div class="main-color"  style="background-color: #563C2B;"></div>
-                            <div class="main-color"  style="background-color: #C68E17;"></div>
+                            <div class="main-color"  
+                                    style="background-color: #76734B;"
+                                    data-id-product="1">
+                            </div>
+
+                            <div class="main-color"  
+                                    style="background-color: #563C2B;"
+                                    data-id-product="2">
+                            </div>
+
+                            <div class="main-color"  
+                                style="background-color: #C68E17;"
+                                    data-id-product="3">
+                            </div>
                         </div>
                     </div>
 
-                    <button>Add To Chart</button>
+                    <form action="/add-to-cart" method="POST">
+                        <input type="hidden" name="id_product" class="selected-product-id" value="1">
+
+                        <button type="submit">
+                            Add To Cart
+                        </button>
+                    </form>
                 </div>
 
                 <div class="card-product-page">
