@@ -34,14 +34,20 @@ cards.forEach(card => {
         btn.addEventListener('click', () => {
 
             textColor.forEach(text => text.classList.remove('show'));
-            textColor[index].classList.add('show');
+            if (textColor[index]) {
+                textColor[index].classList.add('show');
+            }
 
             imgProduct.forEach(img => img.classList.remove('show'));
-            imgProduct[index].classList.add('show');
+            if (imgProduct[index]) {
+                imgProduct[index].classList.add('show');
+            }
 
-            selectedProductId.value = btn.dataset.idProduct;
+            if (selectedProductId) {
+                selectedProductId.value = btn.dataset.idProduct;
+            }
 
-            console.log("ID Product dipilih:", selectedProductId.value);
+            console.log("ID Product:", btn.dataset.idProduct);
         });
     });
 });
@@ -79,6 +85,19 @@ overlayNav.addEventListener("click", (e) =>{
         overlayNav.style.display = "none";
     }
 });
+
+const buttonCart = document.getElementById("button-cart");
+const overlayCart = document.getElementById("overlay-cart");
+
+buttonCart.addEventListener("click", () =>{
+    overlayCart.style.display = "flex";
+});
+
+overlayCart.addEventListener("click", (e) => {
+    if(e.target === overlayCart){
+        overlayCart.style.display = "none";
+    }
+})
 
 
 

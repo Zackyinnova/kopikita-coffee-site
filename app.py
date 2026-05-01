@@ -29,7 +29,31 @@ def signupPage():
 
 @app.route('/shoppage')
 def shopPage():
-    return render_template('shopPage.html')
+    if "user_id" not in session:
+        return redirect("/signinpage")
+
+    user_id = session["user_id"]
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT 
+            p.nama_product,
+            p.variant,
+            p.price,
+            p.img,
+            td.qty
+        FROM tb_transaksi_detail td
+        JOIN tb_transaksi t 
+            ON td.id_transaksi = t.id_transaksi
+        JOIN tb_product p 
+            ON td.id_product = p.id_product
+        WHERE t.user_id = %s
+        AND t.status = %s
+    """, (user_id, "add to cart"))
+
+    cart_items = cursor.fetchall()
+
+    return render_template("shopPage.html", cart_items=cart_items)
 
 @app.route('/addproduct')
 def addproduct():
@@ -163,7 +187,7 @@ def navAccount():
 def addToCart():
 
     if "user_id" not in session:
-        return redirect("/login")
+        return redirect("/signinpage")
 
     cursor = db.cursor(dictionary=True)
 
@@ -228,7 +252,9 @@ def addToCart():
     db.commit()
 
     return redirect("/shoppage")
-    
+
+
+
 @app.route('/logout')
 def logout():
     session.clear()

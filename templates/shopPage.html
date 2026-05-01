@@ -31,7 +31,7 @@
                 </a>
             </div>
 
-            <div class="nav">
+            <div class="nav" id="button-cart">
                 <a href="#">
                     <P>cart</P>
                 </a>
@@ -534,19 +534,31 @@
         </div>
     </div>
 
-    <div class="overlay-cart">
+    <div class="overlay-cart" id="overlay-cart">
         <div class="container-cart">
             <div class="header-cart">
                 <span class="ic--outline-shopping-cart"></span>
                 <p>your Cart</p>
             </div>
 
+            {% for item in cart_items %}
             <div class="product-cart-container">
-                p
+                <div class="img-cart-product">
+                    <img src="{{ url_for('static', filename='img/img-product1/' + item.img) }}">
+                </div>
+
+                <div class="detail-cart-product">
+                    <h3>{{ item.nama_product }}</h3>
+                    <p>Rasa: {{ item.variant }}</p>
+                    <p>Harga: Rp {{ item.price }}</p>
+                    <p>Qty: {{ item.qty }}</p>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 
-    <script src="/static/js/shoppage.js?v=2"></script>
+    <script src="{{ url_for('static', filename='js/shoppage.js') }}"></script>
+
 </body>
 </html>
