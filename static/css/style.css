@@ -737,15 +737,17 @@ a{
     flex-direction: column;
     gap: 10px;
     border-radius: 10px;
-    padding: 10px 10px;
+    padding: 10px 0px;
 }
 
 
 .header-cart{
     display: flex;
     align-items: center;
-    padding: 10px 0px;
+    padding: 10px 20px;
     gap: 10px;
+    width: 100%;
+    border-bottom: 1px solid #8A8A8A;
 }
 
 .header-cart p{
@@ -753,14 +755,86 @@ a{
     font-size: 20px;
 }
 
+.content-cart{
+
+    height: 100%;
+    padding: 0px 10px;
+}
+
 .product-cart-container{
     border: 1px solid #8A8A8A ;
+    border-radius: 4px;
+    padding-left: 4px;
     background-color: #FAFAFA;
     width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 10px;
+}
+
+.img-cart-product{
+    width: 30%;
+    height: auto;
 }
 
 .img-cart-product img{
     width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    
+}
+
+.detail-cart-product{
+    padding: 0px 10px;
+
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bottom-detail-cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.box-qty{
+    border: 1px solid #F1ECE7;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: stretch; /* ini kunci */
+
+}
+
+.number-qty{
+    border-left: 1px solid #F1ECE7;
+    border-right: 1px solid #F1ECE7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 8px;
+    color: #5B5B5B;
+}
+
+
+.qty-icon{
+    padding: 4px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price-cart{
+    font-size: 16px;
+    font-weight: 600;
 }
 
 
@@ -1316,6 +1390,24 @@ a{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59l-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2zM6.16 6h12.15l-2.76 5H8.53zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2'/%3E%3C/svg%3E");
+}
+
+.ic--round-plus {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235B5B5B' d='M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2'/%3E%3C/svg%3E");
+}
+
+.ic--round-minus {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235B5B5B' d='M18 12.998H6a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2'/%3E%3C/svg%3E");
 }
 
 

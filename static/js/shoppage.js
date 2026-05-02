@@ -99,6 +99,30 @@ overlayCart.addEventListener("click", (e) => {
     }
 })
 
+//update qty cart
+const boxes = document.querySelectorAll(".box-qty");
+
+boxes.forEach(box => {
+    const plus = box.querySelector(".btn-plus");
+    const minus = box.querySelector(".btn-min");
+    const qtyText = box.querySelector(".qty-number");
+
+    plus.addEventListener("click", () => {
+        let qty = parseInt(qtyText.textContent);
+        qtyText.textContent = qty + 1;
+    });
+
+    minus.addEventListener("click", () => {
+        let qty = parseInt(qtyText.textContent);
+
+        if (qty > 1) {
+            qtyText.textContent = qty - 1;
+        }
+    });
+});
+
+
+
 
 
 
