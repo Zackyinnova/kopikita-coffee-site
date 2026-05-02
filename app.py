@@ -185,11 +185,8 @@ def navAccount():
 
 @app.route('/add-to-cart', methods=["POST"])
 def addToCart():
-
     if "user_id" not in session:
         return redirect("/signinpage")
-
-    cursor = db.cursor(dictionary=True)
 
     user_id = session["user_id"]
     id_product = request.form.get("id_product")
@@ -197,16 +194,20 @@ def addToCart():
     if not id_product:
         return "id_product tidak ditemukan", 400
 
-    # 1. Cek apakah user sudah punya cart aktif
+    cursor = db.cursor(dictionary=True)
+
+    # cek cart aktif user
     cursor.execute("""
-        SELECT * FROM tb_transaksi
+        SELECT id_transaksi
+        FROM tb_transaksi
         WHERE user_id = %s AND status = %s
     """, (user_id, "add to cart"))
 
     transaksi = cursor.fetchone()
 
-    # 2. Kalau belum ada cart, buat transaksi baru
-    if not transaksi:
+    if transaksi:
+        id_transaksi = transaksi["id_transaksi"]
+    else:
         cursor.execute("""
             INSERT INTO tb_transaksi (user_id, total_price, status)
             VALUES (%s, %s, %s)
@@ -215,12 +216,10 @@ def addToCart():
         db.commit()
         id_transaksi = cursor.lastrowid
 
-    else:
-        id_transaksi = transaksi["id_transaksi"]
-
-    # 3. Ambil data product berdasarkan id_product
+    # ambil product
     cursor.execute("""
-        SELECT * FROM tb_product
+        SELECT *
+        FROM tb_product
         WHERE id_product = %s
     """, (id_product,))
 
@@ -229,20 +228,20 @@ def addToCart():
     if not product:
         return "Product tidak ditemukan", 404
 
-    # 4. Masukkan ke detail transaksi
+    # insert detail, WAJIB ada id_product
     cursor.execute("""
         INSERT INTO tb_transaksi_detail
-        (id_transaksi, product_name, variant, price, qty)
-        VALUES (%s, %s, %s, %s, %s)
+        (id_transaksi, product_name, variant, price, qty, id_product)
+        VALUES (%s, %s, %s, %s, %s, %s)
     """, (
         id_transaksi,
         product["nama_product"],
         product["variant"],
         product["price"],
-        1
+        1,
+        id_product
     ))
 
-    # 5. Update total_price
     cursor.execute("""
         UPDATE tb_transaksi
         SET total_price = total_price + %s
