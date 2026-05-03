@@ -759,6 +759,25 @@ a{
 
     height: 100%;
     padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header-detail-cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.btn-remove {
+    background: red;
+    color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    z-index: 999;
+    position: relative;
 }
 
 .product-cart-container{
@@ -835,6 +854,23 @@ a{
 .price-cart{
     font-size: 16px;
     font-weight: 600;
+}
+
+.content-checkout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-checkout button {
+    all: unset;
+    width: 80%;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px 0px;
+    background-color: #3B2F2F;
+    color: white;
+    border-radius: 8px;
 }
 
 
@@ -1408,6 +1444,15 @@ a{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235B5B5B' d='M18 12.998H6a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2'/%3E%3C/svg%3E");
+}
+
+.ic--round-close {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235B5B5B' d='M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4'/%3E%3C/svg%3E");
 }
 
 

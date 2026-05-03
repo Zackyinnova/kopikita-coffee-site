@@ -37,6 +37,8 @@ def shopPage():
 
     cursor.execute("""
         SELECT 
+            td.id,
+            p.id_product,
             p.nama_product,
             p.variant,
             p.price,
@@ -252,6 +254,23 @@ def addToCart():
 
     return redirect("/shoppage")
 
+@app.route("/delete-cart-item", methods=["POST"])
+def deleteCartItem():
+    if "user_id" not in session:
+        return redirect("/signinpage")
+
+    id_detail = request.form.get("id_detail")
+
+    cursor = db.cursor()
+
+    cursor.execute("""
+        DELETE FROM tb_transaksi_detail
+        WHERE id = %s
+    """, (id_detail,))
+
+    db.commit()
+
+    return redirect("/shoppage")
 
 
 @app.route('/logout')

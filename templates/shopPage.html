@@ -549,8 +549,18 @@
                     </div>
 
                     <div class="detail-cart-product">
-                        <h3>{{ item.nama_product }}</h3>
+
+                        <div class="header-detail-cart">
+                            <h3>{{ item.nama_product }}</h3>
+
+                            <form action="/delete-cart-item" method="POST">
+                                <input type="hidden" name="id_detail" value="{{ item.id }}">
+                                <button type="submit">HAPUS</button>
+                            </form>
+                        </div>  
+
                         <p>{{ item.variant }}</p>
+
                         <div class="bottom-detail-cart">
                             <div class="box-qty">
                                 <div class="qty-icon btn-plus">
@@ -570,6 +580,10 @@
                     </div>
                 </div>
                 {% endfor %}
+            </div>
+
+            <div class="content-checkout">
+                <button>Check out</button>
             </div>
         </div>
     </div>
