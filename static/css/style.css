@@ -705,16 +705,28 @@ a{
     display: block;
 }
 
-.card-product-page button{
-    all: unset;
+.card-product-page button {
+    border: none;
+    outline: none;
     text-align: center;
     background-color: #3B2F2F;
     border-radius: 10px;
     padding: 10px 0px;
     color: white;
     width: 100%;
-    height: auto;
     font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-add-cart:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-add-cart:disabled:hover {
+    background-color: #ccc; /* biar ga berubah saat hover */
 }
    
 .overlay-cart{
@@ -771,10 +783,9 @@ a{
 
 }
 
-.btn-remove {
+.btn-remove button{
     background: red;
     color: white;
-    border: 1px solid black;
     cursor: pointer;
     z-index: 999;
     position: relative;
@@ -1452,8 +1463,7 @@ a{
   height: 24px;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235B5B5B' d='M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4'/%3E%3C/svg%3E");
 }
-
 
 

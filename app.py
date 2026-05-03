@@ -35,6 +35,7 @@ def shopPage():
     user_id = session["user_id"]
     cursor = db.cursor(dictionary=True)
 
+    # ambil data item untuk overlay cart
     cursor.execute("""
         SELECT 
             td.id,
@@ -55,7 +56,14 @@ def shopPage():
 
     cart_items = cursor.fetchall()
 
-    return render_template("shopPage.html", cart_items=cart_items)
+    # ambil id product yang sudah ada di cart
+    cart_products = [item["id_product"] for item in cart_items]
+
+    return render_template(
+        "shopPage.html",
+        cart_items=cart_items,
+        cart_products=cart_products
+    )
 
 @app.route('/addproduct')
 def addproduct():

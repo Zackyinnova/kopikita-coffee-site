@@ -141,8 +141,13 @@
                     <form action="/add-to-cart" method="POST">
                         <input type="hidden" name="id_product" class="selected-product-id" value="1">
 
-                        <button type="submit">
-                            Add To Cart
+                        <button type="submit" class="btn-add-cart"
+                            {% if 1 in cart_products %}disabled{% endif %}>
+                            {% if 1 in cart_products %}
+                                Added
+                            {% else %}
+                                Add To Cart
+                            {% endif %}
                         </button>
                     </form>
                 </div>
@@ -553,9 +558,11 @@
                         <div class="header-detail-cart">
                             <h3>{{ item.nama_product }}</h3>
 
-                            <form action="/delete-cart-item" method="POST">
+                            <form action="/delete-cart-item" method="POST" class="btn-remove">
                                 <input type="hidden" name="id_detail" value="{{ item.id }}">
-                                <button type="submit">HAPUS</button>
+                                <button type="submit" >
+                                    <span class="ic--round-close"></span>
+                                </button>
                             </form>
                         </div>  
 
