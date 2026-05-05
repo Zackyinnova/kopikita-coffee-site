@@ -692,9 +692,13 @@
 
             <div class="content-checkout">
                 {% if is_login and cart_items|length > 0 %}
-                    <button>Check out</button>
+                    <button type="submit" class="btn-checkout">
+                        Check out
+                    </button>
                 {% else %}
-                    <button disabled>Check out</button>
+                    <button type="button" class="btn-checkout" disabled>
+                        Check out
+                    </button>
                 {% endif %}
             </div>
         </div>
