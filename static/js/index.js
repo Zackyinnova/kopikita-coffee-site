@@ -55,4 +55,60 @@ overlayNav.addEventListener("click", (e) =>{
     }
 });
 
+//open overlay cart
+const buttonCart = document.getElementById("button-cart");
+const overlayCart = document.getElementById("overlay-cart");
+
+buttonCart.addEventListener("click", () =>{
+    overlayCart.style.display = "flex";
+});
+
+overlayCart.addEventListener("click", (e) => {
+    if(e.target === overlayCart){
+        overlayCart.style.display = "none";
+    }
+})
+
+//update qty cart
+const boxes = document.querySelectorAll(".box-qty");
+
+boxes.forEach(box => {
+    const plus = box.querySelector(".btn-plus");
+    const minus = box.querySelector(".btn-min");
+    const qtyText = box.querySelector(".qty-number");
+
+    const container = box.closest(".product-cart-container");
+    const priceEl = container.querySelector(".price-cart");
+
+    const basePrice = parseInt(priceEl.dataset.price);
+
+    function formatRupiah(angka) {
+        return angka.toLocaleString("id-ID");
+    }
+
+    function updatePrice(qty) {
+        const total = basePrice * qty;
+        priceEl.textContent = "Rp." + formatRupiah(total);
+    }
+
+    plus.addEventListener("click", () => {
+        let qty = parseInt(qtyText.textContent);
+        qty++;
+        qtyText.textContent = qty;
+
+        updatePrice(qty);
+    });
+
+    minus.addEventListener("click", () => {
+        let qty = parseInt(qtyText.textContent);
+
+        if (qty > 1) {
+            qty--;
+            qtyText.textContent = qty;
+
+            updatePrice(qty);
+        }
+    });
+});
+
 

@@ -38,7 +38,7 @@
                     <P>Shop</P>
                 </a>
             </div>
-            <div class="nav">
+            <div class="nav" id="button-cart">
                 <a href="#">
                     <P>Cart</P>
                 </a>
@@ -50,11 +50,11 @@
                 </a>
             </div>
 
-            <div class="nav">
+            <!--<div class="nav">
                 <a href="{{ url_for('addproduct') }}">
                     <P>add product</P>
                 </a>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -343,7 +343,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="section-review">
         <div class="header-review">
             <div class="star-review">
@@ -616,6 +616,86 @@
                 <div class="box-nav">
                         <P>Join PatnerShip</P>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Overlay cart-->
+    <div class="overlay-cart" id="overlay-cart">
+        <div class="container-cart">
+            <div class="header-cart">
+                <span class="ic--outline-shopping-cart"></span>
+                <p>your Cart</p>
+            </div>
+
+            <div class="content-cart">
+
+                {% if not is_login %}
+                    <div class="cart-login-message">
+                        <p>Login dulu untuk melihat cart kamu.</p>
+                        <a href="/loginpage" class="btn-login-cart">Login</a>
+                    </div>
+                {% else %}
+
+                    {% for item in cart_items %}
+                    <div class="product-cart-container">
+                        <div class="img-cart-product">
+                            <img src="{{ url_for('static', filename='img/img-product1/' + item.img) }}">
+                        </div>
+
+                        <div class="detail-cart-product">
+                            <div class="header-detail-cart">
+                                <h3>{{ item.nama_product }}</h3>
+
+                                <form action="/delete-cart-item" method="POST" class="btn-remove">
+                                    <input type="hidden" name="id_detail" value="{{ item.id }}">
+                                    <button type="submit">
+                                        <span class="ic--round-close"></span>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <p>{{ item.variant }}</p>
+
+                            <div class="bottom-detail-cart">
+                                <div class="box-qty">
+                                    <div class="qty-icon btn-plus">
+                                        <span class="ic--round-plus"></span>
+                                    </div>
+
+                                    <div class="number-qty">
+                                        <p class="qty-number">{{ item.qty }}</p>
+                                    </div>
+
+                                    <div class="qty-icon btn-min">
+                                        <span class="ic--round-minus"></span>
+                                    </div>
+                                </div>
+
+                                <p class="price-cart" data-price="{{ item.price }}">
+                                    Rp.{{ item.price }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% if cart_items|length == 0 %}
+                        <div class="cart-empty-message">
+                            <p>Cart kamu masih kosong.</p>
+                        </div>
+                    {% endif %}
+
+                {% endif %}
+
+            </div>
+
+            <div class="content-checkout">
+                {% if is_login and cart_items|length > 0 %}
+                    <button>Check out</button>
+                {% else %}
+                    <button disabled>Check out</button>
+                {% endif %}
             </div>
         </div>
     </div>
