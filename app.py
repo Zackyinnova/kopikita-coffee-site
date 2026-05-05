@@ -29,40 +29,40 @@ def signupPage():
 
 @app.route('/shoppage')
 def shopPage():
-    if "user_id" not in session:
-        return redirect("/signinpage")
-
-    user_id = session["user_id"]
     cursor = db.cursor(dictionary=True)
 
-    # ambil data item untuk overlay cart
-    cursor.execute("""
-        SELECT 
-            td.id,
-            p.id_product,
-            p.nama_product,
-            p.variant,
-            p.price,
-            p.img,
-            td.qty
-        FROM tb_transaksi_detail td
-        JOIN tb_transaksi t 
-            ON td.id_transaksi = t.id_transaksi
-        JOIN tb_product p 
-            ON td.id_product = p.id_product
-        WHERE t.user_id = %s
-        AND t.status = %s
-    """, (user_id, "add to cart"))
+    cart_items = []
+    cart_products = []
+    is_login = False
 
-    cart_items = cursor.fetchall()
+    if "user_id" in session:
+        is_login = True
+        user_id = session["user_id"]
 
-    # ambil id product yang sudah ada di cart
-    cart_products = [item["id_product"] for item in cart_items]
+        cursor.execute("""
+            SELECT 
+                td.id,
+                p.id_product,
+                p.nama_product,
+                p.variant,
+                p.price,
+                p.img,
+                td.qty
+            FROM tb_transaksi_detail td
+            JOIN tb_transaksi t ON td.id_transaksi = t.id_transaksi
+            JOIN tb_product p ON td.id_product = p.id_product
+            WHERE t.user_id = %s
+            AND t.status = %s
+        """, (user_id, "add to cart"))
+
+        cart_items = cursor.fetchall()
+        cart_products = [item["id_product"] for item in cart_items]
 
     return render_template(
         "shopPage.html",
         cart_items=cart_items,
-        cart_products=cart_products
+        cart_products=cart_products,
+        is_login=is_login
     )
 
 @app.route('/addproduct')
