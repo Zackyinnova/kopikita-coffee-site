@@ -622,6 +622,10 @@
 
             </div>
 
+            <div class="container-price-cart">
+                <p>Rp.{{ total_cart }}</p>
+            </div>
+
             <div class="content-checkout">
                 {% if is_login and cart_items|length > 0 %}
                 <form action="/CheckOutItem" method="POST">

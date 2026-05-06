@@ -873,6 +873,15 @@ a{
     justify-content: center;
 }
 
+.container-price-cart{
+    border: 1px solid black;
+}
+
+
+.content-checkout form{
+    width: 100%;
+}
+
 .content-checkout button {
     all: unset;
     width: 80%;

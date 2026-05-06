@@ -17,13 +17,14 @@ db = mysql.connector.connect(
 #first page
 @app.route('/')
 def index():
-    cart_items, cart_products, is_login = get_cart_data()
+    cart_items, cart_products, is_login, total_cart=total_cart = get_cart_data()
 
     return render_template(
         "index.html",
         cart_items=cart_items,
         cart_products=cart_products,
-        is_login=is_login
+        is_login=is_login,
+        total_cart=total_cart
     )
 
 @app.route('/testpage')
@@ -40,19 +41,21 @@ def signupPage():
 
 @app.route('/shoppage')
 def shopPage():
-    cart_items, cart_products, is_login = get_cart_data()
+    cart_items, cart_products, is_login, total_cart = get_cart_data()
 
     return render_template(
         "shopPage.html",
         cart_items=cart_items,
         cart_products=cart_products,
-        is_login=is_login
+        is_login=is_login,
+        total_cart=total_cart
     )
 
 def get_cart_data():
     cart_items = []
     cart_products = []
     is_login = False
+    total_cart = 0
 
     if "user_id" in session:
         is_login = True
@@ -79,7 +82,10 @@ def get_cart_data():
         cart_items = cursor.fetchall()
         cart_products = [item["id_product"] for item in cart_items]
 
-    return cart_items, cart_products, is_login
+        for item in cart_items:
+            total_cart += item["price"] * item["qty"]
+
+    return cart_items, cart_products, is_login, total_cart
 
 @app.route('/addproduct')
 def addproduct():
