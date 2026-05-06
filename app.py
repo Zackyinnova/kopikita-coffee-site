@@ -296,7 +296,48 @@ def deleteCartItem():
 
     return redirect("/shoppage")
 
+@app.route("/CheckOutItem", methods=["POST"])
+def CheckOutItem():
+    if "user_id" not in session:
+        return redirect("/signinpage")
+    
+    user_id = session["user_id"]
 
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT id_transaksi
+        FROM tb_transaksi
+        WHERE user_id = %s AND status = %s
+    """, (user_id, "add to cart"))
+
+    transaksi = cursor.fetchone()
+
+    if not transaksi:
+        return redirect("/shoppage")
+    
+    id_transaksi = transaksi["id_transaksi"]
+
+    cursor.execute("""
+        SELECT COUNT(*) AS total_item
+        FROM tb_transaksi_detail
+        WHERE id_transaksi = %s
+    """, (id_transaksi,))
+
+    result = cursor.fetchone()
+
+    if result["total_item"] == 0:
+        return redirect("/shoppage")
+
+    cursor.execute("""
+        UPDATE tb_transaksi
+        SET status = %s
+        WHERE id_transaksi = %s
+    """,("memesan", id_transaksi))
+
+    db.commit()
+
+    return redirect("/testpage")
 
 
 @app.route('/logout')

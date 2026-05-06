@@ -568,7 +568,7 @@
                         <a href="/loginpage" class="btn-login-cart">Login</a>
                     </div>
                 {% else %}
-
+                
                     {% for item in cart_items %}
                     <div class="product-cart-container">
                         <div class="img-cart-product">
@@ -591,16 +591,16 @@
 
                             <div class="bottom-detail-cart">
                                 <div class="box-qty">
-                                    <div class="qty-icon btn-plus">
-                                        <span class="ic--round-plus"></span>
+                                    <div class="qty-icon btn-min">
+                                        <span class="ic--round-minus"></span>
                                     </div>
 
                                     <div class="number-qty">
                                         <p class="qty-number">{{ item.qty }}</p>
                                     </div>
 
-                                    <div class="qty-icon btn-min">
-                                        <span class="ic--round-minus"></span>
+                                    <div class="qty-icon btn-plus">
+                                        <span class="ic--round-plus"></span>
                                     </div>
                                 </div>
 
@@ -624,7 +624,9 @@
 
             <div class="content-checkout">
                 {% if is_login and cart_items|length > 0 %}
+                <form action="/CheckOutItem" method="POST">
                     <button>Check out</button>
+                </form>
                 {% else %}
                     <button disabled>Check out</button>
                 {% endif %}
