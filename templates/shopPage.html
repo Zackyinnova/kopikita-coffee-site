@@ -141,13 +141,8 @@
                     <form action="/add-to-cart" method="POST">
                         <input type="hidden" name="id_product" class="selected-product-id" value="1">
 
-                        <button type="submit" class="btn-add-cart"
-                            {% if 1 in cart_products %}disabled{% endif %}>
-                            {% if 1 in cart_products %}
-                                Added
-                            {% else %}
-                                Add To Cart
-                            {% endif %}
+                        <button type="submit" class="btn-add-cart">
+                            Add to Cart
                         </button>
                     </form>
                 </div>
@@ -191,13 +186,32 @@
                         </div>
 
                         <div class="color-taste">
-                            <div class="main-color"  style="background-color: #E63946;"></div>
-                            <div class="main-color"  style="background-color: #FFB703;"></div>
-                            <div class="main-color"  style="background-color: #FF8C42;"></div>
-                        </div>
-                    </div>
+                            <div class="main-color"  
+                                    style="background-color: #E63946;"
+                                    data-id-product="4">
 
-                    <button>Add To Chart</button>
+                            </div>
+
+                            <div class="main-color"  
+                                    style="background-color: #FFB703;"
+                                    data-id-product="5">
+                            </div>
+
+                            <div class="main-color" 
+                                 style="background-color: #FF8C42;"
+                                 data-id-product="6">
+                            
+                                </div>
+                        </div>
+                    </div>  
+
+                    <form action="/add-to-cart" method="POST">
+                        <input type="hidden" name="id_product" class="selected-product-id" value="1">
+
+                        <button type="submit" class="btn-add-cart">
+                            Add to Cart
+                        </button>
+                    </form>
                 </div>
 
                 <div class="card-product-page">
@@ -558,7 +572,7 @@
                     {% for item in cart_items %}
                     <div class="product-cart-container">
                         <div class="img-cart-product">
-                            <img src="{{ url_for('static', filename='img/img-product1/' + item.img) }}">
+                            <img src="{{ url_for('static', filename=item.path_img) }}">
                         </div>
 
                         <div class="detail-cart-product">
@@ -619,6 +633,9 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/shoppage.js') }}"></script>
+
+    
+
 
 </body>
 </html>

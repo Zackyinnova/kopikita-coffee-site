@@ -26,6 +26,10 @@ def index():
         is_login=is_login
     )
 
+@app.route('/testpage')
+def testpage():
+    return render_template('testpage.html')
+
 @app.route('/loginpage')
 def signinpage():
     return render_template('AccountPage/LoginPage.html')
@@ -63,6 +67,7 @@ def get_cart_data():
                 p.variant,
                 p.price,
                 p.img,
+                p.path_img,
                 td.qty
             FROM tb_transaksi_detail td
             JOIN tb_transaksi t ON td.id_transaksi = t.id_transaksi
@@ -290,6 +295,8 @@ def deleteCartItem():
     db.commit()
 
     return redirect("/shoppage")
+
+
 
 
 @app.route('/logout')
