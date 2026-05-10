@@ -774,6 +774,8 @@ a{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-y: auto;
+
 }
 
 .header-detail-cart{
@@ -1305,7 +1307,7 @@ a{
     }
     
     .container-cart{
-        width: 90%;
+        width: 95%;
     }
     
     .product-cart-container{
