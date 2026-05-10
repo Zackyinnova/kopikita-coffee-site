@@ -640,7 +640,7 @@
                     {% for item in cart_items %}
                     <div class="product-cart-container">
                         <div class="img-cart-product">
-                            <img src="{{ url_for('static', filename='img/img-product1/' + item.img) }}">
+                            <img src="{{ url_for('static', filename=item.path_img) }}">
                         </div>
 
                         <div class="detail-cart-product">
