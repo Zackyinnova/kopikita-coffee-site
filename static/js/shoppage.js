@@ -99,8 +99,29 @@ overlayCart.addEventListener("click", (e) => {
     }
 })
 
-//update qty cart
+// update qty cart
 const boxes = document.querySelectorAll(".box-qty");
+const totalCartText = document.querySelector(".total-cart-price");
+
+function formatRupiah(angka) {
+    return angka.toLocaleString("id-ID");
+}
+
+function updateTotalCart() {
+    let totalCart = 0;
+
+    document.querySelectorAll(".product-cart-container").forEach(container => {
+        const qtyText = container.querySelector(".qty-number");
+        const priceEl = container.querySelector(".price-cart");
+
+        const qty = parseInt(qtyText.textContent);
+        const basePrice = parseInt(priceEl.dataset.price);
+
+        totalCart += qty * basePrice;
+    });
+
+    totalCartText.textContent = "Rp." + formatRupiah(totalCart);
+}
 
 boxes.forEach(box => {
     const plus = box.querySelector(".btn-plus");
@@ -112,10 +133,6 @@ boxes.forEach(box => {
 
     const basePrice = parseInt(priceEl.dataset.price);
 
-    function formatRupiah(angka) {
-        return angka.toLocaleString("id-ID");
-    }
-
     function updatePrice(qty) {
         const total = basePrice * qty;
         priceEl.textContent = "Rp." + formatRupiah(total);
@@ -124,9 +141,10 @@ boxes.forEach(box => {
     plus.addEventListener("click", () => {
         let qty = parseInt(qtyText.textContent);
         qty++;
-        qtyText.textContent = qty;
 
+        qtyText.textContent = qty;
         updatePrice(qty);
+        updateTotalCart();
     });
 
     minus.addEventListener("click", () => {
@@ -134,9 +152,10 @@ boxes.forEach(box => {
 
         if (qty > 1) {
             qty--;
-            qtyText.textContent = qty;
 
+            qtyText.textContent = qty;
             updatePrice(qty);
+            updateTotalCart();
         }
     });
 });

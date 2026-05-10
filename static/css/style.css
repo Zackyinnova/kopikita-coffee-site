@@ -871,10 +871,23 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    border-top: 1px solid #666;
+    padding-top: 10px;
+    gap: 10px;
 }
 
 .container-price-cart{
-    border: 1px solid black;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.number-price-cart{
+    font-size: 20px;
+    font-weight: 600;
 }
 
 

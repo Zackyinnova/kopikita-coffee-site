@@ -622,11 +622,19 @@
 
             </div>
 
-            <div class="container-price-cart">
-                <p>Rp.{{ total_cart }}</p>
-            </div>
 
             <div class="content-checkout">
+
+                <div class="container-price-cart">
+                    <div class="text-price-cart">
+                        <p>Total Harga : </p>
+                    </div>
+
+                    <div class="number-price-cart" id="total-all-item">
+                        <p class="total-cart-price">Rp.{{ total_cart }}</p>
+                    </div>
+                </div>
+
                 {% if is_login and cart_items|length > 0 %}
                 <form action="/CheckOutItem" method="POST">
                     <button>Check out</button>
