@@ -343,7 +343,44 @@ def CheckOutItem():
 
 @app.route('/FormCheckOut')
 def FormCheckOut():
-    return render_template('form_checkout.html')
+    if "user_id" not in session:
+        return redirect("/signinpage")
+
+    user_id = session["user_id"]
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT 
+            t.id_transaksi,
+            t.total_price,
+            t.status,
+            td.id,
+            td.qty,
+            p.id_product,
+            p.nama_product,
+            p.variant,
+            p.price,
+            p.path_img
+        FROM tb_transaksi t
+        JOIN tb_transaksi_detail td 
+            ON t.id_transaksi = td.id_transaksi
+        JOIN tb_product p 
+            ON td.id_product = p.id_product
+        WHERE t.user_id = %s
+        AND t.status = %s
+    """, (user_id, "memesan"))
+
+    checkout_items = cursor.fetchall()
+
+    total_checkout = 0
+    for item in checkout_items:
+        total_checkout += item["price"] * item["qty"]
+
+    return render_template(
+        "formCheckOut.html",
+        checkout_items=checkout_items,
+        total_checkout=total_checkout
+    )
 
 
 @app.route('/logout')

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <div class="navbar-checkout">
+        <div class="title-brand checkout">
+            <img src="static/img/logo v2.png" alt="">
+        </div>
+    </div>
+
+    <div class="main-checkout">
+
+        <!--Left Side-->
+        <div class="content-form-checkout left">
+            <P>asd</P>
+        </div>
+
+        <!--Right side-->
+        <div class="content-form-checkout right">
+            <div class="container-product-checkout">
+                {% for item in checkout_items %}
+                    <div class="product-cart-container">
+                        <div class="img-cart-product">
+                            <img src="{{ url_for('static', filename=item.path_img) }}">
+                        </div>
+
+                        <div class="detail-cart-product">
+                            <div class="header-detail-cart">
+                                <h3>{{ item.nama_product }}</h3>
+
+                                <form action="/delete-cart-item" method="POST" class="btn-remove">
+                                    <input type="hidden" name="id_detail" value="{{ item.id }}">
+                                    <button type="submit">
+                                        <span class="ic--round-close"></span>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <p>{{ item.variant }}</p>
+
+                            <div class="bottom-detail-cart">
+                                <div class="box-qty">
+                                    <div class="qty-icon btn-min">
+                                        <span class="ic--round-minus"></span>
+                                    </div>
+
+                                    <div class="number-qty">
+                                        <p class="qty-number">{{ item.qty }}</p>
+                                    </div>
+
+                                    <div class="qty-icon btn-plus">
+                                        <span class="ic--round-plus"></span>
+                                    </div>
+                                </div>
+
+                                <p class="price-cart" data-price="{{ item.price }}">
+                                    Rp.{{ item.price }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
