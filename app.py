@@ -27,10 +27,6 @@ def index():
         total_cart=total_cart
     )
 
-@app.route('/testpage')
-def testpage():
-    return render_template('testpage.html')
-
 @app.route('/loginpage')
 def signinpage():
     return render_template('AccountPage/LoginPage.html')
@@ -343,7 +339,11 @@ def CheckOutItem():
 
     db.commit()
 
-    return redirect("/testpage")
+    return redirect("/FormCheckOut")
+
+@app.route('/FormCheckOut')
+def FormCheckOut():
+    return render_template('form_checkout.html')
 
 
 @app.route('/logout')

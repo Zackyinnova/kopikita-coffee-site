@@ -784,8 +784,8 @@ a{
 }
 
 .btn-remove button{
-    background: red;
-    color: white;
+    border: none;
+    background-color: inherit;
     cursor: pointer;
     z-index: 999;
     position: relative;
@@ -873,7 +873,7 @@ a{
     justify-content: center;
     flex-direction: column;
     border-top: 1px solid #666;
-    padding-top: 10px;
+    padding: 20px 0px;
     gap: 10px;
 }
 
@@ -898,7 +898,7 @@ a{
 .content-checkout button {
     all: unset;
     width: 80%;
-    border: 1px solid black;
+    border: none;
     text-align: center;
     padding: 10px 0;
     background-color: #3B2F2F;
@@ -907,6 +907,10 @@ a{
     cursor: pointer;
     display: block;
     margin: 0 auto;
+}
+
+.content-checkout button:hover {
+    background-color: #5A4545;
 }
 
 .content-checkout button:disabled {
@@ -1153,6 +1157,10 @@ a{
     width: 100%;
 }
 
+.icon-cart{
+    display: none;
+}
+
 
 @media(max-width:600px){
 
@@ -1290,6 +1298,18 @@ a{
 
     .icon-burger-menu{
         display: flex;
+    }
+
+    .icon-cart{
+        display: flex;
+    }
+    
+    .container-cart{
+        width: 90%;
+    }
+    
+    .product-cart-container{
+        padding: 10px 5px;
     }
 
     .overlay-navbar{
@@ -1549,7 +1569,16 @@ a{
   height: 24px;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%237B7B7B' d='M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4'/%3E%3C/svg%3E");
+}
+
+.mdi--cart-outline {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1zm6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5z'/%3E%3C/svg%3E");
 }
 
 

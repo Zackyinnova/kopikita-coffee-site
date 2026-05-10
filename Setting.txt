@@ -18,5 +18,5 @@ Commit Message
 Contoh : 
 
 1. Feat:midtrans            = menambah payment gateway
-2. Fix:eror login           = Memperbaiki eror di login
+2. Fix:eror login           = Memperbaiki eror dffi login
 3. style: update navbar     = mengupdate tampilan navbar

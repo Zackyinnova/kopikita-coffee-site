@@ -88,8 +88,13 @@ overlayNav.addEventListener("click", (e) =>{
 
 const buttonCart = document.getElementById("button-cart");
 const overlayCart = document.getElementById("overlay-cart");
+const iconCart = document.getElementById("icon-cart");
 
 buttonCart.addEventListener("click", () =>{
+    overlayCart.style.display = "flex";
+});
+
+iconCart.addEventListener("click", () => {
     overlayCart.style.display = "flex";
 });
 
