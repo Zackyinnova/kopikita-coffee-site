@@ -304,45 +304,35 @@ def CheckOutItem():
         return redirect("/signinpage")
     
     user_id = session["user_id"]
-
     cursor = db.cursor(dictionary=True)
 
     cursor.execute("""
         SELECT id_transaksi
         FROM tb_transaksi
         WHERE user_id = %s AND status = %s
+        ORDER BY id_transaksi DESC
+        LIMIT 1
     """, (user_id, "add to cart"))
 
     transaksi = cursor.fetchone()
 
     if not transaksi:
         return redirect("/shoppage")
-    
+
     id_transaksi = transaksi["id_transaksi"]
-
-    cursor.execute("""
-        SELECT COUNT(*) AS total_item
-        FROM tb_transaksi_detail
-        WHERE id_transaksi = %s
-    """, (id_transaksi,))
-
-    result = cursor.fetchone()
-
-    if result["total_item"] == 0:
-        return redirect("/shoppage")
 
     cursor.execute("""
         UPDATE tb_transaksi
         SET status = %s
         WHERE id_transaksi = %s
-    """,("memesan", id_transaksi))
+    """, ("memesan", id_transaksi))
 
     db.commit()
 
-    return redirect("/FormCheckOut")
+    return redirect(f"/FormCheckOut/{id_transaksi}")
 
-@app.route('/FormCheckOut')
-def FormCheckOut():
+@app.route("/FormCheckOut/<int:id_transaksi>")
+def FormCheckOut(id_transaksi):
     if "user_id" not in session:
         return redirect("/signinpage")
 
@@ -367,8 +357,9 @@ def FormCheckOut():
         JOIN tb_product p 
             ON td.id_product = p.id_product
         WHERE t.user_id = %s
+        AND t.id_transaksi = %s
         AND t.status = %s
-    """, (user_id, "memesan"))
+    """, (user_id, id_transaksi, "memesan"))
 
     checkout_items = cursor.fetchall()
 
