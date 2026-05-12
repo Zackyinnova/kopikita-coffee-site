@@ -2,6 +2,7 @@ import mysql.connector
 import re
 from flask import session
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import request
 
 app = Flask(__name__)
 
@@ -330,6 +331,31 @@ def CheckOutItem():
     db.commit()
 
     return redirect(f"/FormCheckOut/{id_transaksi}")
+
+@app.route("/update-cart-qty", methods=["POST"])
+def updateCartQty():
+    if "user_id" not in session:
+        return {"success": False, "message": "Login dulu"}, 401
+
+    data = request.get_json()
+
+    id_detail = data.get("id_detail")
+    qty = data.get("qty")
+
+    if not id_detail or not qty:
+        return {"success": False, "message": "Data tidak lengkap"}, 400
+
+    cursor = db.cursor()
+
+    cursor.execute("""
+        UPDATE tb_transaksi_detail
+        SET qty = %s
+        WHERE id = %s
+    """, (qty, id_detail))
+
+    db.commit()
+
+    return {"success": True}
 
 @app.route("/FormCheckOut/<int:id_transaksi>")
 def FormCheckOut(id_transaksi):

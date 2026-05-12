@@ -150,6 +150,9 @@ boxes.forEach(box => {
         qtyText.textContent = qty;
         updatePrice(qty);
         updateTotalCart();
+
+        const idDetail = container.dataset.idDetail;
+        updateQtyDatabase(idDetail, qty);
     });
 
     minus.addEventListener("click", () => {
@@ -161,9 +164,25 @@ boxes.forEach(box => {
             qtyText.textContent = qty;
             updatePrice(qty);
             updateTotalCart();
+
+            const idDetail = container.dataset.idDetail;
+            updateQtyDatabase(idDetail, qty);
         }
     });
 });
+
+function updateQtyDatabase(idDetail, qty) {
+    fetch("/update-cart-qty", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id_detail: idDetail,
+            qty: qty
+        })
+    });
+}
 
 
 

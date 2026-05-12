@@ -574,7 +574,7 @@
                 {% else %}
                 
                     {% for item in cart_items %}
-                    <div class="product-cart-container">
+                    <div class="product-cart-container" data-id-detail="{{ item.id }}">
                         <div class="img-cart-product">
                             <img src="{{ url_for('static', filename=item.path_img) }}">
                         </div>

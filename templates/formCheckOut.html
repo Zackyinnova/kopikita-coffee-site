@@ -48,25 +48,15 @@
 
 
                         <div class="detail-cart-product">
-                            <div class="header-detail-cart">
+                            <div class="header-detail-checkout">
                                 <h3>{{ item.nama_product }}</h3>
-
-                                <form action="/delete-cart-item" method="POST" class="btn-remove">
-                                    <input type="hidden" name="id_detail" value="{{ item.id }}">
-                                    <button type="submit">
-                                        <span class="ic--round-close"></span>
-                                    </button>
-                                </form>
-                            </div>
-
-                            <p>{{ item.variant }}</p>
-
-                            <div class="bottom-detail-cart">
 
                                 <p class="price-cart" data-price="{{ item.price }}">
                                     Rp.{{ item.price }}
                                 </p>
                             </div>
+
+                            <p>{{ item.variant }}</p>
                         </div>
                     </div>
                 {% endfor %}
