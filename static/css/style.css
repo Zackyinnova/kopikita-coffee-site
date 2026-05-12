@@ -1190,8 +1190,9 @@ a{
     background-color: white;
     border-right: 1px solid #E5E5E5;
     display: flex;
+    
     justify-content: right;
-    padding-right: 60px;
+    padding-right: 30px;
 }
 
 .content-form-checkout.right{
@@ -1199,15 +1200,19 @@ a{
     border-left: 1px solid #E5E5E5;
     display: flex;
     justify-content: left;
-    padding-left: 60px;
+    flex-direction: column;
+    padding-left: 30px;
+    gap: 10px
+    ;
+
 }
 
 .container-product-checkout{
     width: 50%;
     height: 40vh;
+    border: 1px solid black;
     overflow-y: auto;
     display: flex;
-    align-items: center;
     flex-direction: column;
     gap: 10px;
 }
@@ -1267,6 +1272,19 @@ a{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.input-discount-code{
+    width: 50%;
+}
+
+.input-discount-code input{
+    width: 80%;
+    padding: 10px 20px;
+}
+
+.input-discount-code button{
+    padding: 10px 20px;
 }
 
 
