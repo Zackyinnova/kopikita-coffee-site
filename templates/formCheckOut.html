@@ -35,10 +35,17 @@
         <div class="content-form-checkout right">
             <div class="container-product-checkout">
                 {% for item in checkout_items %}
-                    <div class="product-cart-container">
-                        <div class="img-cart-product">
+                    <div class="product-checkout-container">
+                        <div class="img-checkout-product">
                             <img src="{{ url_for('static', filename=item.path_img) }}">
+
+                            <div class="box-qty-checkout">
+                                <div class="number-qty-checkout">
+                                    <p class="qty-number">{{ item.qty }}</p>
+                                </div>
+                            </div>
                         </div>
+
 
                         <div class="detail-cart-product">
                             <div class="header-detail-cart">
@@ -55,19 +62,6 @@
                             <p>{{ item.variant }}</p>
 
                             <div class="bottom-detail-cart">
-                                <div class="box-qty">
-                                    <div class="qty-icon btn-min">
-                                        <span class="ic--round-minus"></span>
-                                    </div>
-
-                                    <div class="number-qty">
-                                        <p class="qty-number">{{ item.qty }}</p>
-                                    </div>
-
-                                    <div class="qty-icon btn-plus">
-                                        <span class="ic--round-plus"></span>
-                                    </div>
-                                </div>
 
                                 <p class="price-cart" data-price="{{ item.price }}">
                                     Rp.{{ item.price }}
