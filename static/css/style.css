@@ -1060,6 +1060,7 @@ a{
     font-size: 16px;
 }
 
+
 .main-login button:hover{
     background-color: #6f472c;
 }
@@ -1202,26 +1203,26 @@ a{
     justify-content: left;
     flex-direction: column;
     padding-left: 30px;
-    gap: 10px
-    ;
+    gap: 10px;
 
 }
 
 .container-product-checkout{
     width: 50%;
-    height: 40vh;
-    border: 1px solid black;
+    height: auto;
+    max-height: 40vh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 10px 10px;
 }
 
 .product-checkout-container{
     border-radius: 4px;
     padding-left: 4px;
     width: 90%;
-    height: 20%;
+    height: 80px;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -1281,10 +1282,24 @@ a{
 .input-discount-code input{
     width: 80%;
     padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-discount-code input:focus{
+    border-color: #8B5E3C; /* warna kopi */
+    box-shadow: 0 0 0 2px rgba(139,94,60,0.2);
 }
 
 .input-discount-code button{
     padding: 10px 20px;
+    background-color: #8B5E3C;
+    border: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+    /**background-color: #6f472c;**/
 }
 
 
