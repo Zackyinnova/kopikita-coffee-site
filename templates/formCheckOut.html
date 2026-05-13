@@ -68,7 +68,25 @@
                     <button>Apply</button>
                 </form>
             </div>
+
+            <div class="text-for-code">
+                <P>Gunakan kode promo untuk mendapatkan potongan harga</P>
+            </div>
+
+            <div class="Total-price-checkout">
+                <div class="content-price-allitem">
+                    <P class="text-price-checkout">Subtotal</P>
+                    <P class="price-all-item">Rp. {{ total_all_item}}</P>
+                </div>
+
+                <div class="content-price-shiping">
+                    <P class="text-price-checkout">Shiping</P>
+                    <P class="price-all-item">Rp. {{ total_all_item}}</P>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
+<script src="{{ url_for('static', filename='js/formCheckOut.js') }}"></script>
 </html>

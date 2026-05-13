@@ -1302,6 +1302,25 @@ a{
     /**background-color: #6f472c;**/
 }
 
+.input-discount-code button:hover{
+    background-color: #6f472c;
+}
+
+.text-for-code p{
+    font-size: 14px;
+    color: #828282;
+}
+
+.Total-price-checkout{
+    width: 50%;
+}
+
+.content-price-allitem, 
+.content-price-shiping{
+    display: flex;
+    justify-content: space-between;
+}
+
 
 @media(max-width:600px){
 
