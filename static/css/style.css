@@ -1190,10 +1190,11 @@ a{
 .content-form-checkout.left{
     background-color: white;
     border-right: 1px solid #E5E5E5;
-    display: flex;
-    
-    justify-content: right;
+    display: flex;    
+    flex-direction: column;
+    align-items: flex-end;
     padding-right: 30px;
+    gap: 10px;
 }
 
 .content-form-checkout.right{
@@ -1319,6 +1320,88 @@ a{
 .content-price-shiping{
     display: flex;
     justify-content: space-between;
+}
+
+.button-another-payment {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    box-sizing: border-box;
+    padding: 6px;
+}
+
+.text-upper-payment p{
+    font-size: 16px;
+    color: #828282;
+    margin: 0;
+}
+
+.button-payment{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.qris-button{
+    background: #ffffff;
+    color: #111111;
+    border: 1px solid #dcdcdc;
+    width: 100%;
+    height: 48px;
+    flex: 1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qris-button img{
+    object-fit: cover;
+    width: 40%;
+    height: 60%;
+}
+
+.dana-button{
+    background: #ffffff;
+    color: #111111;
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    height: 48px;
+    flex: 1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dana-button img{
+    object-fit: contain;
+    width: 50%;
+    height: auto;
+    display: block;
+}
+
+.line-or{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.line{
+    border: 1px solid #828282;
+    width: 100%;
+}
+
+.text-or p{
+    color: #828282;
 }
 
 
