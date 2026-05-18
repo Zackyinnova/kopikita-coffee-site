@@ -65,7 +65,7 @@
 
                     <div class="delivery-checkout">
                         <label>Delivery</label>
-                        <select name="shipping-price" id="select-shipping">
+                        <select name="shipping-price" id="select-shipping" method="POST">
                             <option value="" disabled selected hidden>-----</option>
                             <option value="50000">Jakarta Timur</option>
                             <option value="60000">Jakarta Barat</option>
@@ -136,13 +136,21 @@
             <div class="Total-price-checkout">
                 <div class="content-price-allitem">
                     <P class="text-price-checkout">Subtotal</P>
-                    <P class="price-all-item">Rp. {{ total_all_item}}</P>
+                    <P class="price-all-item">
+                        Rp. {{ total_all_item}}
+                    </P>
                 </div>
 
                 <div class="content-price-shiping">
                     <P class="text-price-checkout">Shiping</P>
-                    <P class="price-all-item">Rp. {{ total_all_item}}</P>
+                    <P class="shipping-price"> Rp.0</P>
                 </div>
+            </div>
+
+            <div class="total-price-all">
+                <p class="text-total-price">total </p>
+                <p class="number-total-price">Rp.0</p>
+
             </div>
         </div>
     </div>
