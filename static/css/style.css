@@ -1404,6 +1404,98 @@ a{
     color: #828282;
 }
 
+.form-checkout{
+    width: 50%;
+}
+
+.form-checkout form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.email-checkout{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.email-checkout input{
+    all: unset;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.email-checkout input:focus{
+    border-color: #8B5E3C; /* warna kopi */
+    box-shadow: 0 0 0 2px rgba(139,94,60,0.2);
+}
+
+.form-checkout label{
+    font-weight: 600 ;
+    font-size: 25px;
+}
+
+
+.delivery-checkout{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#select-shipping{
+    all: unset;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.delivery-checkout select:focus{
+    border-color: #8B5E3C; /* warna kopi */
+    box-shadow: 0 0 0 2px rgba(139,94,60,0.2);
+}
+
+.input-username-checkout{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+.input-username-checkout input{
+    all: unset;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-address-checkout input{
+    all: unset;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-number-checkout input{
+    all: unset;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
 
 @media(max-width:600px){
 
