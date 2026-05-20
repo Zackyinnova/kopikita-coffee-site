@@ -1496,6 +1496,76 @@ a{
     outline: none;
 }
 
+.form-payment{
+    width: 50%;
+}
+
+.form-payment label{
+    font-weight: 600 ;
+    font-size: 25px;
+}
+
+.sub-label-form{
+    font-size: 15px;
+    color: #5B5B5B;
+}
+
+.container-payment{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+.main-payment{
+    border: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    transition: 0.2s;
+}
+
+.main-payment.top{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.main-payment.bottom{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.text-payment{
+    display: flex;
+    gap: 10px;
+}
+
+.text-payment{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.img-payment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-payment img{
+    object-fit: contain;
+    width: 70px;
+    height: auto;
+    display: block;
+}
+
+
+
+.main-payment:has(input[type="radio"]:checked) {
+    border: 2px solid #5A4545;
+    background-color: #F6F1EB;
+}
+
 
 @media(max-width:600px){
 
