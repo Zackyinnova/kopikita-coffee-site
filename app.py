@@ -36,6 +36,10 @@ def signinpage():
 def signupPage():
     return render_template('AccountPage/CreateaccPage.html')
 
+@app.route('/testpage')
+def testpage():
+    return render_template('testPage.html')
+
 @app.route('/shoppage')
 def shopPage():
     cart_items, cart_products, is_login, total_cart = get_cart_data()
@@ -398,6 +402,74 @@ def FormCheckOut(id_transaksi):
         checkout_items=checkout_items,
         total_checkout=total_checkout
     )
+
+@app.route("/placeorder", methods=["POST"])
+def placeOrder():
+    if "user_id" not in session:
+        return redirect("/signinpage")
+
+    user_id = session["user_id"]
+
+    email_user = request.form.get("email_user")
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    address_user = request.form.get("address_user")
+    number_user = request.form.get("number_user")
+    shipping_price = request.form.get("shipping_price")
+    payment_method = request.form.get("payment_method")
+
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT id_transaksi, total_price
+        FROM tb_transaksi
+        WHERE user_id = %s
+        AND status = %s
+        ORDER BY id_transaksi DESC
+        LIMIT 1
+    """, (user_id, "memesan"))
+
+    transaksi = cursor.fetchone()
+
+    if not transaksi:
+        return redirect("/shoppage")
+
+    id_transaksi = transaksi["id_transaksi"]
+    total_price = transaksi["total_price"]
+
+    grand_total = int(total_price) + int(shipping_price)
+
+    cursor.execute("""
+        UPDATE tb_transaksi
+        SET 
+            email_user = %s,
+            first_name = %s,
+            last_name = %s,
+            address_user = %s,
+            number_user = %s,
+            shipping_price = %s,
+            payment_method = %s,
+            grand_total = %s,
+            status = %s
+        WHERE id_transaksi = %s
+        AND user_id = %s
+    """, (
+        email_user,
+        first_name,
+        last_name,
+        address_user,
+        number_user,
+        shipping_price,
+        payment_method,
+        grand_total,
+        "ordered",
+        id_transaksi,
+        user_id
+    ))
+
+    db.commit()
+
+    return redirect("/testpage")
 
 
 @app.route('/logout')
