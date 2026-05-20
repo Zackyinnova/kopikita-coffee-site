@@ -24,49 +24,49 @@
         </div>
     </div>
 
-    <div class="main-checkout">
+    <form action="/placeorder" method="POST">
+        <div class="main-checkout">
 
-        <!--Left Side-->
-        <div class="content-form-checkout left">
-            <!--
-            <div class="button-another-payment">
-                <div class="text-upper-payment">
-                    <p>Quick Checkout</p>
-                </div>
-
-                <div class="button-payment">
-                    <div class="qris-button">
-                        <img src="/static/img/img-payment/qris-img.jpg" alt="">
+            <!--Left Side-->
+            <div class="content-form-checkout left">
+                <!--
+                <div class="button-another-payment">
+                    <div class="text-upper-payment">
+                        <p>Quick Checkout</p>
                     </div>
 
-                    <div class="dana-button">
-                        <img src="/static/img/img-payment/dana-img.png" alt="">
+                    <div class="button-payment">
+                        <div class="qris-button">
+                            <img src="/static/img/img-payment/qris-img.jpg" alt="">
+                        </div>
+
+                        <div class="dana-button">
+                            <img src="/static/img/img-payment/dana-img.png" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="line-or">
-                <div class="line"></div>
+                <div class="line-or">
+                    <div class="line"></div>
 
-                <div class="text-or">
-                    <P>OR</P>
+                    <div class="text-or">
+                        <P>OR</P>
+                    </div>
+
+                    <div class="line">
+
+                    </div>
                 </div>
-
-                <div class="line">
-
-                </div>
-            </div>
-            -->
-            <div class="form-checkout">
-                <form>
+                -->
+                <div class="form-checkout">
                     <div class="email-checkout">
                         <label>Contact</label>
-                        <input type="text" placeholder="Email">
+                        <input type="text" placeholder="Email" name="email_user" required>
                     </div>
 
                     <div class="delivery-checkout">
                         <label>Delivery</label>
-                        <select name="shipping-price" id="select-shipping" method="POST">
+                        <select name="shipping_price" id="select-shipping" required>
                             <option value="" disabled selected hidden>-----</option>
                             <option value="50000">Jakarta Timur</option>
                             <option value="60000">Jakarta Barat</option>
@@ -76,146 +76,144 @@
                         </select>
 
                         <div class="input-username-checkout">
-                            <input type="text" placeholder="First name">
-                            <input type="text" placeholder="Last name">
+                            <input type="text" placeholder="First name" name="first_name" required>
+                            <input type="text" placeholder="Last name" name="last_name" required>
                         </div>
 
                         <div class="input-address-checkout">
-                            <input type="text" placeholder="Address">
+                            <input type="text" placeholder="Address" name="address_user" required>
                         </div>
 
                         <div class="input-number-checkout">
-                            <input type="text" placeholder="Number Phone">
+                            <input type="text" placeholder="Number Phone" name="number_user" required>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
 
-            <div class="form-payment">
-                <label>Payment Method</label>
-                <P class="sub-label-form">All transactions are secure and encrypted.</P>
-                
-                <div class="container-payment">
-                    <label class="main-payment top">
+                <div class="form-payment">
+                    <label>Payment Method</label>
+                    <P class="sub-label-form">All transactions are secure and encrypted.</P>
+                    
+                    <div class="container-payment">
+                        <label class="main-payment top">
 
-                        <div class="text-payment">
-                            <input type="radio" name="Payment">
-                            <P>Qris</P>
-                        </div>
+                            <div class="text-payment">
+                                <input type="radio" name="payment_method" value="qris" required>
+                                <P>Qris</P>
+                            </div>
 
-                        <div class="img-payment">
-                            <img src="/static/img/img-payment/qris-img.jpg">
-                        </div>
-                    </label>
+                            <div class="img-payment">
+                                <img src="/static/img/img-payment/qris-img.jpg">
+                            </div>
+                        </label>
 
-                    <label class="main-payment">
-                        <div class="text-payment">
-                            <input type="radio" name="Payment">
-                            <P>BCA</P>
-                        </div>
+                        <label class="main-payment">
+                            <div class="text-payment">
+                                <input type="radio" name="payment_method" value="bca" required>
+                                <P>BCA</P>
+                            </div>
 
-                        <div class="img-payment">
-                            <img src="/static/img/img-payment/bca-img.png">
-                        </div>
-                    </label>
+                            <div class="img-payment">
+                                <img src="/static/img/img-payment/bca-img.png">
+                            </div>
+                        </label>
 
-                    <label class="main-payment">
-                        <div class="text-payment">
-                            <input type="radio" name="Payment">
-                            <P>Mandiri</P>
-                        </div>
+                        <label class="main-payment">
+                            <div class="text-payment">
+                                <input type="radio" name="payment_method" value="mandiri" required>
+                                <P>Mandiri</P>
+                            </div>
 
-                        <div class="img-payment">
-                            <img src="/static/img/img-payment/mandiri-img.png">
-                        </div>
-                    </label>
+                            <div class="img-payment">
+                                <img src="/static/img/img-payment/mandiri-img.png">
+                            </div>
+                        </label>
 
-                    <label class="main-payment bottom">
-                         <div class="text-payment">
-                            <input type="radio" name="Payment">
-                            <P>Bni</P>
-                        </div>
+                        <label class="main-payment bottom">
+                            <div class="text-payment">
+                                <input type="radio" name="payment_method" value="bni" required>
+                                <P>Bni</P>
+                            </div>
 
-                        <div class="img-payment">
-                            <img src="/static/img/img-payment/bni-img.png">
-                        </div>
-                    </label>
+                            <div class="img-payment">
+                                <img src="/static/img/img-payment/bni-img.png">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-bottom-left">
+                    <h6>Secure Checkout</h6>
+                    <P>Your payment information is securely processed and encrypted.</P>
+                </div>
+
+                <div class="button-order">
+                    <button type="submit">Order Now</button>
                 </div>
             </div>
 
-            <div class="text-bottom-left">
-                <h6>Secure Checkout</h6>
-                <P>Your payment information is securely processed and encrypted.</P>
-            </div>
+            <!--Right side-->
+            <div class="content-form-checkout right">
+                <div class="container-product-checkout">
+                    {% for item in checkout_items %}
+                        <div class="product-checkout-container">
+                            <div class="img-checkout-product">
+                                <img src="{{ url_for('static', filename=item.path_img) }}">
 
-            <div class="button-order">
-                <button>Order Now</button>
-            </div>
-        </div>
-
-        <!--Right side-->
-        <div class="content-form-checkout right">
-            <div class="container-product-checkout">
-                {% for item in checkout_items %}
-                    <div class="product-checkout-container">
-                        <div class="img-checkout-product">
-                            <img src="{{ url_for('static', filename=item.path_img) }}">
-
-                            <div class="box-qty-checkout">
-                                <div class="number-qty-checkout">
-                                    <p class="qty-number">{{ item.qty }}</p>
+                                <div class="box-qty-checkout">
+                                    <div class="number-qty-checkout">
+                                        <p class="qty-number">{{ item.qty }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                        <div class="detail-cart-product">
-                            <div class="header-detail-checkout">
-                                <h3>{{ item.nama_product }}</h3>
+                            <div class="detail-cart-product">
+                                <div class="header-detail-checkout">
+                                    <h3>{{ item.nama_product }}</h3>
 
-                                <p class="price-cart" data-price="{{ item.price }}">
-                                    Rp.{{ item.price }}
-                                </p>
+                                    <p class="price-cart" data-price="{{ item.price * item.qty }}">
+                                        Rp.{{ item.price * item.qty }}
+                                    </p>
+                                </div>
+
+                                <p>{{ item.variant }}</p>
                             </div>
-
-                            <p>{{ item.variant }}</p>
                         </div>
+                    {% endfor %}
+                </div>
+
+                <div class="input-discount-code">
+                    <input type="text" placeholder="Discount Code" name="discount_code">
+                    <button type="button">Apply</button>
+                </div>
+
+                <div class="text-for-code">
+                    <P>Gunakan kode promo untuk mendapatkan potongan harga</P>
+                </div>
+
+                <div class="Total-price-checkout">
+                    <div class="content-price-allitem">
+                        <P class="text-price-checkout">Subtotal</P>
+                        <P class="price-all-item">
+                            Rp. {{ total_all_item}}
+                        </P>
                     </div>
-                {% endfor %}
-            </div>
 
-            <div class="input-discount-code">
-                <form>
-                    <input type="text" placeholder="Discount Code">
-                    <button>Apply</button>
-                </form>
-            </div>
-
-            <div class="text-for-code">
-                <P>Gunakan kode promo untuk mendapatkan potongan harga</P>
-            </div>
-
-            <div class="Total-price-checkout">
-                <div class="content-price-allitem">
-                    <P class="text-price-checkout">Subtotal</P>
-                    <P class="price-all-item">
-                        Rp. {{ total_all_item}}
-                    </P>
+                    <div class="content-price-shiping">
+                        <P class="text-price-checkout">Shipping</P>
+                        <P class="shipping-price"> Rp.0</P>
+                    </div>
                 </div>
 
-                <div class="content-price-shiping">
-                    <P class="text-price-checkout">Shiping</P>
-                    <P class="shipping-price"> Rp.0</P>
+                <div class="total-price-all">
+                    <p class="text-total-price">total </p>
+                    <p class="number-total-price">Rp.0</p>
+
                 </div>
-            </div>
-
-            <div class="total-price-all">
-                <p class="text-total-price">total </p>
-                <p class="number-total-price">Rp.0</p>
-
             </div>
         </div>
-    </div>
+    </form>
 </body>
 
 <script src="{{ url_for('static', filename='js/formCheckOut.js') }}"></script>
