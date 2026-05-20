@@ -1523,7 +1523,6 @@ a{
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
-    transition: 0.2s;
 }
 
 .main-payment.top{
@@ -1559,13 +1558,51 @@ a{
     display: block;
 }
 
-
+.main-payment input[type="radio"]{
+    accent-color: #5A4545;
+}
 
 .main-payment:has(input[type="radio"]:checked) {
     border: 2px solid #5A4545;
     background-color: #F6F1EB;
 }
 
+.text-bottom-left{
+    width: 50%;
+}
+
+.text-bottom-left h6{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.text-bottom-left p{
+    font-size: 12px;
+    color: #5B5B5B;
+}
+
+.button-order{
+
+    width: 50%;
+}
+
+.button-order button{
+    all: unset;
+    border: none;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #8B5E3C;
+    color: white;
+    font-weight: 500;
+}
+
+.button-order button:hover{
+    background-color: #6f472c;
+    cursor: pointer;
+
+}
 
 @media(max-width:600px){
 
