@@ -17,6 +17,33 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <p>sad</p>
+    <div class="navbar-checkout">
+        <div class="title-brand checkout">
+            <img src="/static/img/logo v2.png" alt="logo">
+        </div>
+    </div>
+    
+    <div class="container-payment-page">
+        <div class="header-payment">
+            <h3>Selesaikan Pembayaran Anda</h3>
+        </div>
+
+        <div class="timer-payment">
+            <div class="icon-timer">
+                <span class="mingcute--time-line"></span>
+            </div>
+
+            <div class="text-timer">
+                <P>Berakhir dalam</P>
+            </div>
+
+            <div class="countdown-payment">
+                24:00:00
+            </div>
+        </div>
+    </div>
+
 </body>
+
+<script src="{{ url_for('static', filename='js/paymentPage.js') }}"></script>
 </html>

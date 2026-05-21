@@ -469,7 +469,7 @@ def placeOrder():
 
     db.commit()
 
-    return redirect("/testpage")
+    return redirect("/paymentpage")
 
 @app.route('/paymentpage')
 def paymentpage():
