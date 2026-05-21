@@ -471,6 +471,10 @@ def placeOrder():
 
     return redirect("/testpage")
 
+@app.route('/paymentpage')
+def paymentpage():
+    return render_template('paymentPage.html')
+
 
 @app.route('/logout')
 def logout():
