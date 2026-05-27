@@ -49,3 +49,26 @@ const timer = setInterval(updateCountdown, 1000);
 
 // pertama kali load
 updateCountdown();
+
+const instructionCard  = document.querySelectorAll(".payment-method");
+
+instructionCard.forEach((item) => {
+    item.addEventListener("click", () => {
+
+        const overlay = item.querySelector(".text-instruction");
+
+        // tutup semua dulu
+        document.querySelectorAll(".text-instruction").forEach((el) => {
+            if (el !== overlay) {
+                el.style.display = "none";
+            }
+        });
+
+        // toggle yang diklik
+        if (overlay.style.display === "block") {
+            overlay.style.display = "none";
+        } else {
+            overlay.style.display = "block";
+        }
+    });
+});

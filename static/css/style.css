@@ -1744,7 +1744,7 @@ a{
     padding: 0px 20px 20px 20px;
 }
 
-.payment-with-atm{
+.payment-method{
     border-bottom: 3px solid #EFE7DF;
     padding: 0px 20px 20px 20px;
     
@@ -1779,6 +1779,7 @@ a{
     padding-left: 20px;
     font-size: 15px;
     font-weight: 400;
+    display: none;
 }
 
 
