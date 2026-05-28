@@ -49,3 +49,13 @@ shippingSelect.addEventListener("change", () => {
 
 
 UpdatePriceItem();
+
+const form = document.querySelector("form")
+
+form.addEventListener("submit", function(e){
+    const paymentMethod = document.querySelector(
+        'input[name="payment_method"]:checked'
+    ).value;
+
+    localStorage.setItem("payment_method",paymentMethod);
+});
