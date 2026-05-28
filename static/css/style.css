@@ -1610,7 +1610,7 @@ a{
 /*Payment Page*/
 
 .container-payment-page{
-    border: 1px solid black;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1733,7 +1733,7 @@ a{
     border: 1px solid #d9d9d9;
     border-radius: 10px;
     background-color: white;
-    padding: 20px 0px;
+    padding: 20px 0px 0px 0px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -1746,8 +1746,11 @@ a{
 
 .payment-method{
     border-bottom: 3px solid #EFE7DF;
-    padding: 0px 20px 20px 20px;
-    
+    padding: 5px 20px 5px 20px;
+}
+
+.payment-method.last-method{
+    border: none;
 }
 
 .header-payment-method{
