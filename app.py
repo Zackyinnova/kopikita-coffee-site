@@ -224,12 +224,9 @@ def addToCart():
     user_id = session["user_id"]
     id_product = request.form.get("id_product")
 
-    if not id_product:
-        return "id_product tidak ditemukan", 400
-
     cursor = db.cursor(dictionary=True)
 
-    # cek cart aktif user
+    # cek cart aktif
     cursor.execute("""
         SELECT id_transaksi
         FROM tb_transaksi
@@ -249,37 +246,46 @@ def addToCart():
         db.commit()
         id_transaksi = cursor.lastrowid
 
-    # ambil product
+    # cek apakah product sudah ada di cart detail
     cursor.execute("""
-        SELECT *
+        SELECT id, qty
+        FROM tb_transaksi_detail
+        WHERE id_transaksi = %s
+        AND id_product = %s
+    """, (id_transaksi, id_product))
+
+    existing_item = cursor.fetchone()
+
+    if existing_item:
+        # kalau sudah ada, tambah qty
+        cursor.execute("""
+            UPDATE tb_transaksi_detail
+            SET qty = qty + 1
+            WHERE id = %s
+        """, (existing_item["id"],))
+    else:
+        # kalau belum ada, insert baru
+        cursor.execute("""
+            INSERT INTO tb_transaksi_detail
+            (id_transaksi, id_product, qty)
+            VALUES (%s, %s, %s)
+        """, (id_transaksi, id_product, 1))
+
+    # ambil harga product
+    cursor.execute("""
+        SELECT price
         FROM tb_product
         WHERE id_product = %s
     """, (id_product,))
 
     product = cursor.fetchone()
 
-    if not product:
-        return "Product tidak ditemukan", 404
-
-    # insert detail, WAJIB ada id_product
-    cursor.execute("""
-        INSERT INTO tb_transaksi_detail
-        (id_transaksi, product_name, variant, price, qty, id_product)
-        VALUES (%s, %s, %s, %s, %s, %s)
-    """, (
-        id_transaksi,
-        product["nama_product"],
-        product["variant"],
-        product["price"],
-        1,
-        id_product
-    ))
-
-    cursor.execute("""
-        UPDATE tb_transaksi
-        SET total_price = total_price + %s
-        WHERE id_transaksi = %s
-    """, (product["price"], id_transaksi))
+    if product:
+        cursor.execute("""
+            UPDATE tb_transaksi
+            SET total_price = total_price + %s
+            WHERE id_transaksi = %s
+        """, (product["price"], id_transaksi))
 
     db.commit()
 
