@@ -1653,7 +1653,8 @@ a{
     width: 40%;
 }
 
-.payment-card.va-card{
+.payment-card.va-card ,
+.payment-card.qris-card{
     border: 1px solid #d9d9d9;
     border-radius: 10px;
     background-color: white;
@@ -1872,6 +1873,12 @@ a{
 
 .icon-right{
     display: flex;
+}
+
+.container-qris-barcode{
+    border: 1px solid black;
+    height: auto;
+    background-color: #EFE7DF;
 }
 
 

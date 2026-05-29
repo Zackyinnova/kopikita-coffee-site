@@ -46,16 +46,16 @@
 
             <!-- LEFT -->
             <div class="payment-left">
-                <div class="payment-card va-card">
+                <div class="payment-card va-card" id="va-payment">
                     <div class="header-payment-card">
                         
                         <div class="hero-text-payment">
-                            <H6>Virtual Account</H6>
-                            <P id="payment-title">Transfer Via Bank Mandiri</P>
+                            <H6 id="va-payment-type">Virtual Account</H6>
+                            <P id="va-payment-title""></P>
                         </div>
 
                         <div class="img-header-payment">
-                            <img id="payment-img" src="/static/img/img-payment/mandiri-img.png">
+                            <img id="va-payment-img">
                         </div>
                     </div>
 
@@ -83,6 +83,25 @@
                     <div class="total-price-payment">
                         <P>Total Pembayaran</P>
                         <h4>Rp. 194.000</h4>
+                    </div>
+                </div>
+
+                <div class="payment-card qris-card" id="qris-payment">
+                    <div class="header-payment-card">
+                        
+                        <div class="hero-text-payment">
+                            <h6 id="qris-payment-type">Pembayaran QRIS</h6>
+                            <p id="qris-payment-title"></p>
+                        </div>
+
+                        <div class="img-header-payment">
+                            <img id="qris-payment-img">
+                        </div>
+                    </div>
+
+                    
+                    <div class="container-qris-barcode">
+
                     </div>
                 </div>
 
