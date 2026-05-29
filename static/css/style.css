@@ -1653,17 +1653,20 @@ a{
     width: 40%;
 }
 
-.payment-card.va-card ,
-.payment-card.qris-card{
+.payment-card.va-card{
     border: 1px solid #d9d9d9;
     border-radius: 10px;
     background-color: white;
     padding: 20px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
     margin-bottom: 20px;
 }
+
+
+
+
 
 .header-payment-card{
     display: flex;
@@ -1723,8 +1726,10 @@ a{
 .line-payment-card{
     background-color: #EFE7DF;
     width: 100%;
-    height: 3px;
+    height:3px;
 }
+
+
 
 .total-price-payment p{
     font-size: 12px;
@@ -1875,10 +1880,40 @@ a{
     display: flex;
 }
 
+
+.payment-card.qris-card{
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
 .container-qris-barcode{
-    border: 1px solid black;
-    height: auto;
+    border: 1px solid #EFE7DF;
+    border-radius: 10px;
+    height: 20em;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.content-qris-barcode{
     background-color: #EFE7DF;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-qris-barcode img{
+    object-fit: contain;
+    width: 60%;
+    height: auto;
+    display: block;
 }
 
 
