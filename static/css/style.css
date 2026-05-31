@@ -1915,9 +1915,31 @@ a{
     display: block;
 }
 
+.total-payment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.total-payment p{
+    font-size: 17px;
+}
+
+.total-payment h4{
+    font-weight: 700;
+    font-size: 25px;
+}
+
 .button-download-barcode{
+    display: flex;
+}
+
+.button-download-barcode button{
+    all: unset;
+    width: 100%;
     border: 1px solid black;
-    padding: 10px 10px;
+    padding: 10px 0px;
     display: flex;
     justify-content: center;
     gap: 10px;

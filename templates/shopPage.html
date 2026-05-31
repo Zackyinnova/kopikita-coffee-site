@@ -635,7 +635,9 @@
                     </div>
 
                     <div class="number-price-cart" id="total-all-item">
-                        <p class="total-cart-price">Rp.{{ total_cart }}</p>
+                        <p class="total-cart-price">
+                            Rp. {{ "{:,.0f}".format(total_cart).replace(",", ".") }}
+                        </p>
                     </div>
                 </div>
 

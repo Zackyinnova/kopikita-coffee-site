@@ -68,8 +68,12 @@
                             </div>
                         </div>
 
+                        <div class="total-payment">
+                            <P>Total Pembayaran</P>
+                            <h4>Rp. {{ "{:,.0f}".format(transaksi.total_price).replace(",", ".") }}</h4>
+                        </div>
+
                         <div class="button-download-barcode">
-                            
                             <button>
                                 <div class="icon-download">
                                     <span class="material-symbols--download"></span>
@@ -161,7 +165,7 @@
 
                         <div class="total-price-payment">
                             <P>Total Pembayaran</P>
-                            <h4>Rp. 194.000</h4>
+                            <h4>Rp. {{ "{:,.0f}".format(transaksi.total_price).replace(",", ".") }}</h4>
                         </div>
                 </div>
                 {% endif %}
@@ -279,11 +283,11 @@
                             </div>
 
                             <div class="text-instruction">
-                                <P>1. Masukan kartu ATM dan PIN anda.</P>
-                                <P>2. Pilih menu <B>Bayar/Beli</B>.</P>
-                                <P>3. Pilih <b>Multi Payment</b>.</P>
-                                <P>4. Masukan Kode Virtual Account Anda.</P>
-                                <P>5. Konfirmasi pembayaran dan simpan struk anda</P>
+                                <P>1. Masukkan kartu ATM dan PIN BCA.</P>
+                                <P>2. Pilih Transaksi Lainnya <B>Transfer</B>.</P>
+                                <P>3. Pilih <b>BCA Virtual Account.</b>.</P>
+                                <P>4. Masukkan nomor Virtual Account Anda.</P>
+                                <P>5. Konfirmasi pembayaran dan simpan bukti transaksi.</P>
                             </div>
                         </div>
 
@@ -296,7 +300,7 @@
                                     </div>
 
                                     <div class="text-section-payment">
-                                        <P>ATM Mandiri</P>
+                                        <P>ATM BCA</P>
                                     </div>
                                 </div>
 
@@ -306,10 +310,11 @@
                             </div>
 
                             <div class="text-instruction">
-                                <P>1. Login ke aplikasi Livin' by Mandiri.</P>
-                                <P>2. Pilih menu <B>Bayar</B>.</P>
-                                <P>3. Masukkan Nomor Virtual Account Anda.</P>
-                                <P>4. Masukkan PIN Mandiri Anda untuk menyelesaikan transaksi.</P>
+                                <P>1. Login ke aplikasi BCA Mobile.</P>
+                                <P>2. Pilih menu <B>m-Transfer</B>.</P>
+                                <P>3. Pilih BCA Virtual Account.</P>
+                                <P>4. Masukkan nomor Virtual Account Anda.</P>
+                                <P>5. Konfirmasi pembayaran menggunakan PIN m-BCA.</P>
                             </div>
                         </div>
 
@@ -364,11 +369,11 @@
                             </div>
 
                             <div class="text-instruction">
-                                <P>1. Masukan kartu ATM dan PIN anda.</P>
-                                <P>2. Pilih menu <B>Bayar/Beli</B>.</P>
-                                <P>3. Pilih <b>Multi Payment</b>.</P>
-                                <P>4. Masukan Kode Virtual Account Anda.</P>
-                                <P>5. Konfirmasi pembayaran dan simpan struk anda</P>
+                                <P>1. Masukkan kartu ATM dan PIN BNI.</P>
+                                <P>2. Pilih menu <B>Transfer</B>.</P>
+                                <P>3. Pilih <b>Rekening Virtual Account Billing</b>.</P>
+                                <P>4. Masukkan nomor Virtual Account Anda.</P>
+                                <P>5. Konfirmasi pembayaran dan simpan bukti transaksi.</P>
                             </div>
                         </div>
 
@@ -381,7 +386,7 @@
                                     </div>
 
                                     <div class="text-section-payment">
-                                        <P>ATM Mandiri</P>
+                                        <P>ATM BNI</P>
                                     </div>
                                 </div>
 
@@ -391,10 +396,11 @@
                             </div>
 
                             <div class="text-instruction">
-                                <P>1. Login ke aplikasi Livin' by Mandiri.</P>
-                                <P>2. Pilih menu <B>Bayar</B>.</P>
-                                <P>3. Masukkan Nomor Virtual Account Anda.</P>
-                                <P>4. Masukkan PIN Mandiri Anda untuk menyelesaikan transaksi.</P>
+                                <P>1. Login ke aplikasi BNI Mobile Banking.</P>
+                                <P>2. Pilih menu <B>Transfer</B>.</P>
+                                <p>3. Pilih <b>Virtual Account Billing.</b></p>
+                                <P>4. Masukkan Nomor Virtual Account Anda.</P>
+                                <P>4. Konfirmasi pembayaran dengan PIN transaksi.</P>
                             </div>
                         </div>
 
