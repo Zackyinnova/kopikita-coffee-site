@@ -69,11 +69,3 @@ instructionCard.forEach((item) => {
         }
     });
 });
-
-const payment = localStorage.getItem("payment_method");
-
-function generateVA(prefix) {
-    const randomNumber = Math.floor(10000000 + Math.random() * 90000000);
-    const va = prefix + randomNumber;
-    return va.replace(/(\d{4})(?=\d)/g, "$1 ");
-}

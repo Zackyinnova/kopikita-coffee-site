@@ -69,13 +69,16 @@
                         </div>
 
                         <div class="button-download-barcode">
-                            <div class="icon-download">
-                                <span class="material-symbols--download"></span>
-                            </div>
+                            
+                            <button>
+                                <div class="icon-download">
+                                    <span class="material-symbols--download"></span>
+                                </div>
 
-                            <div class="text-button-download">
-                                <P>Unduh QR Code</P>
-                            </div>
+                                <div class="text-button-download">
+                                    <P>Unduh QR Code</P>
+                                </div>
+                            </button>
                         </div>
 
                         <div class="line-payment-card"></div>
@@ -122,7 +125,7 @@
 
                 {% else %}
 
-                    <div class="payment-card va-card" id="va-payment">
+                <div class="payment-card va-card" id="va-payment">
                         <div class="header-payment-card">
                             
                             <div class="hero-text-payment">
@@ -160,92 +163,265 @@
                             <P>Total Pembayaran</P>
                             <h4>Rp. 194.000</h4>
                         </div>
-                    </div>
-                {% endif %}
-                
-                {% if transaksi.payment_method != "qris" %}
-                <div class="payment-card instruction-card">
-                    <div class="header-instruction-card">
-                        <p>Intruksi Pembayaran</p>
-                    </div>
-
-                    <!--Payment Methods with atm-->
-                    <div class="payment-method">
-                        <div class="header-payment-method">
-                            <div class="left-payment-with-atm">
-                                <div class="icon-atm">
-                                    <span class="ic--round-atm"></span>
-                                </div>
-
-                                <div class="text-section-payment">
-                                    <P>ATM Mandiri</P>
-                                </div>
-                            </div>
-
-                            <div class="right-payment-with-atm">
-                                <span class="mingcute--right-line"></span>
-                            </div>
-                        </div>
-
-                        <div class="text-instruction">
-                            <P>1. Masukan kartu ATM dan PIN anda.</P>
-                            <P>2. Pilih menu <B>Bayar/Beli</B>.</P>
-                            <P>3. Pilih <b>Multi Payment</b>.</P>
-                            <P>4. Masukan Kode Virtual Account Anda.</P>
-                            <P>5. Konfirmasi pembayaran dan simpan struk anda</P>
-                        </div>
-                    </div>
-
-                    <!--Payment methods with mbanking-->
-                    <div class="payment-method">
-                        <div class="header-payment-method">
-                            <div class="left-payment-with-atm">
-                                <div class="icon-atm">
-                                    <span class="gridicons--phone"></span>
-                                </div>
-
-                                <div class="text-section-payment">
-                                    <P>ATM Mandiri</P>
-                                </div>
-                            </div>
-
-                            <div class="right-payment-with-atm">
-                                <span class="mingcute--right-line"></span>
-                            </div>
-                        </div>
-
-                        <div class="text-instruction">
-                            <P>1. Login ke aplikasi Livin' by Mandiri.</P>
-                            <P>2. Pilih menu <B>Bayar</B>.</P>
-                            <P>3. Masukkan Nomor Virtual Account Anda.</P>
-                            <P>4. Masukkan PIN Mandiri Anda untuk menyelesaikan transaksi.</P>
-                        </div>
-                    </div>
-
-                    <!--Payment methods with internet banking-->
-                    <div class="payment-method last-method">
-                        <div class="header-payment-method">
-                            <div class="left-payment-with-atm">
-                                <div class="icon-atm">
-                                    <span class="ic--baseline-laptop"></span>
-                                </div>
-
-                                <div class="text-section-payment">
-                                    <P>Internet Banking</P>
-                                </div>
-                            </div>
-
-                            <div class="right-payment-with-atm">
-                                <span class="mingcute--right-line"></span>
-                            </div>
-                        </div>
-
-                        <div class="text-instruction">
-                            <P>Langkah-langkah serupa dengan Mobile Banking melalui portal resmi bank.</P>
-                        </div>
-                    </div>
                 </div>
+                {% endif %}
 
+                {% if transaksi.payment_method != "qris" %}
+                
+                    {% if transaksi.payment_method == "mandiri" %}
+                    <!-- instruction for mandiiri-->
+                    <div class="payment-card instruction-card">
+                        <div class="header-instruction-card">
+                            <p>Intruksi Pembayaran</p>
+                        </div>
+
+                        <!--Payment Methods with atm-->
+                        <div class="payment-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="ic--round-atm"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>ATM Mandiri</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>1. Masukan kartu ATM dan PIN anda.</P>
+                                <P>2. Pilih menu <B>Bayar/Beli</B>.</P>
+                                <P>3. Pilih <b>Multi Payment</b>.</P>
+                                <P>4. Masukan Kode Virtual Account Anda.</P>
+                                <P>5. Konfirmasi pembayaran dan simpan struk anda</P>
+                            </div>
+                        </div>
+
+                        <!--Payment methods with mbanking-->
+                        <div class="payment-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="gridicons--phone"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>ATM Mandiri</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>1. Login ke aplikasi Livin' by Mandiri.</P>
+                                <P>2. Pilih menu <B>Bayar</B>.</P>
+                                <P>3. Masukkan Nomor Virtual Account Anda.</P>
+                                <P>4. Masukkan PIN Mandiri Anda untuk menyelesaikan transaksi.</P>
+                            </div>
+                        </div>
+
+                        <!--Payment methods with internet banking-->
+                        <div class="payment-method last-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="ic--baseline-laptop"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>Internet Banking</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>Langkah-langkah serupa dengan Mobile Banking melalui portal resmi bank.</P>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% elif transaksi.payment_method == "bca" %}
+
+                    <!-- instruction for BCA-->
+                    <div class="payment-card instruction-card">
+                        <div class="header-instruction-card">
+                            <p>Intruksi Pembayaran</p>
+                        </div>
+
+                        <!--Payment Methods with atm-->
+                        <div class="payment-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="ic--round-atm"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>ATM BCA</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>1. Masukan kartu ATM dan PIN anda.</P>
+                                <P>2. Pilih menu <B>Bayar/Beli</B>.</P>
+                                <P>3. Pilih <b>Multi Payment</b>.</P>
+                                <P>4. Masukan Kode Virtual Account Anda.</P>
+                                <P>5. Konfirmasi pembayaran dan simpan struk anda</P>
+                            </div>
+                        </div>
+
+                        <!--Payment methods with mbanking-->
+                        <div class="payment-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="gridicons--phone"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>ATM Mandiri</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>1. Login ke aplikasi Livin' by Mandiri.</P>
+                                <P>2. Pilih menu <B>Bayar</B>.</P>
+                                <P>3. Masukkan Nomor Virtual Account Anda.</P>
+                                <P>4. Masukkan PIN Mandiri Anda untuk menyelesaikan transaksi.</P>
+                            </div>
+                        </div>
+
+                        <!--Payment methods with internet banking-->
+                        <div class="payment-method last-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="ic--baseline-laptop"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>Internet Banking</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>Langkah-langkah serupa dengan Mobile Banking melalui portal resmi bank.</P>
+                            </div>
+                        </div>
+                    </div>
+
+                    {%elif transaksi.payment_method == "bni" %}
+                                    
+                    <!-- instruction for BNI-->
+                    <div class="payment-card instruction-card">
+                        <div class="header-instruction-card">
+                            <p>Intruksi Pembayaran</p>
+                        </div>
+
+                        <!--Payment Methods with atm-->
+                        <div class="payment-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="ic--round-atm"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>ATM BNI</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>1. Masukan kartu ATM dan PIN anda.</P>
+                                <P>2. Pilih menu <B>Bayar/Beli</B>.</P>
+                                <P>3. Pilih <b>Multi Payment</b>.</P>
+                                <P>4. Masukan Kode Virtual Account Anda.</P>
+                                <P>5. Konfirmasi pembayaran dan simpan struk anda</P>
+                            </div>
+                        </div>
+
+                        <!--Payment methods with mbanking-->
+                        <div class="payment-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="gridicons--phone"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>ATM Mandiri</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>1. Login ke aplikasi Livin' by Mandiri.</P>
+                                <P>2. Pilih menu <B>Bayar</B>.</P>
+                                <P>3. Masukkan Nomor Virtual Account Anda.</P>
+                                <P>4. Masukkan PIN Mandiri Anda untuk menyelesaikan transaksi.</P>
+                            </div>
+                        </div>
+
+                        <!--Payment methods with internet banking-->
+                        <div class="payment-method last-method">
+                            <div class="header-payment-method">
+                                <div class="left-payment-with-atm">
+                                    <div class="icon-atm">
+                                        <span class="ic--baseline-laptop"></span>
+                                    </div>
+
+                                    <div class="text-section-payment">
+                                        <P>Internet Banking</P>
+                                    </div>
+                                </div>
+
+                                <div class="right-payment-with-atm">
+                                    <span class="mingcute--right-line"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-instruction">
+                                <P>Langkah-langkah serupa dengan Mobile Banking melalui portal resmi bank.</P>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 {% endif %}
             </div>
 

@@ -1931,6 +1931,7 @@ a{
 .text-button-download{
     display: flex;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .instruction-qr{
