@@ -70,7 +70,7 @@
 
                         <div class="total-payment">
                             <P>Total Pembayaran</P>
-                            <h4>Rp. {{ "{:,.0f}".format(transaksi.total_price).replace(",", ".") }}</h4>
+                            <h4>Rp. {{ "{:,.0f}".format(transaksi.grand_total).replace(",", ".") }}</h4>
                         </div>
 
                         <div class="button-download-barcode">
@@ -165,7 +165,7 @@
 
                         <div class="total-price-payment">
                             <P>Total Pembayaran</P>
-                            <h4>Rp. {{ "{:,.0f}".format(transaksi.total_price).replace(",", ".") }}</h4>
+                            <h4>Rp. {{ "{:,.0f}".format(transaksi.grand_total).replace(",", ".") }}</h4>
                         </div>
                 </div>
                 {% endif %}

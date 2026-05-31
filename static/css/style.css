@@ -1282,6 +1282,9 @@ a{
 
 .input-discount-code{
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .input-discount-code input{
@@ -1586,7 +1589,6 @@ a{
 }
 
 .button-order{
-
     width: 50%;
 }
 
@@ -1600,6 +1602,10 @@ a{
     background-color: #8B5E3C;
     color: white;
     font-weight: 500;
+}
+
+.button-order-mobile{
+    display: none;
 }
 
 .button-order button:hover{
@@ -2291,6 +2297,147 @@ a{
         width: 84%;
         padding: 20px 20px;
     }
+
+
+
+    /*Paymentpage.html*/
+    .main-checkout{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-form-checkout.left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background-color: #F6F5F1;
+    }
+
+    .form-checkout{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .input-username-checkout{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-payment{
+        width: 90%;
+    }
+
+    .container-payment{
+        border-radius: 10px;
+        background-color: white;
+    }
+    
+    .main-payment{
+        padding: 10px 10px;
+    }
+
+    .text-bottom-left{
+        width: 90%;
+    }
+
+    .button-order-desktop {
+        display: none;
+    }
+
+    .content-form-checkout.right,
+    .content-form-checkout.left{
+        border: none;
+        padding: 10px 0px;
+    }
+
+    .content-form-checkout.right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .container-product-checkout{
+        width: 90%;
+        max-height: 20vh;
+        gap: 20px;
+    }
+
+    .product-checkout-container{
+        width: 100%;
+    }
+    
+    .detail-cart-product{
+        justify-content: start;
+    }
+
+    .header-detail-checkout h3{
+        font-size: 15px;
+    }
+
+    .section-button{
+        display: flex;
+        gap: 20px;
+    }
+    
+    .input-discount-code{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .text-for-code{
+        width: 100%;
+    }
+
+    .text-for-code p{
+        font-size: 12px;
+    }
+
+    .Total-price-checkout{
+        border-bottom: 1px solid #F2EBE5;
+        padding-bottom: 10px;
+        width: 90%;
+    }
+
+    .total-price-all{
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+    }
+
+    .number-total-price{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .button-order-mobile {
+        display: flex;
+        border-top: 1px solid #5551;
+        width: 100%;
+        height: 8vh;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        z-index: 999;
+    }
+
+    .button-order-mobile button{
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 
 .ic--round-star {
