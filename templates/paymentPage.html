@@ -67,6 +67,57 @@
                                 <img src="/static/img/img-payment/Barcode-qris.png">
                             </div>
                         </div>
+
+                        <div class="button-download-barcode">
+                            <div class="icon-download">
+                                <span class="material-symbols--download"></span>
+                            </div>
+
+                            <div class="text-button-download">
+                                <P>Unduh QR Code</P>
+                            </div>
+                        </div>
+
+                        <div class="line-payment-card"></div>
+
+                        <div class="instruction-qr">
+                            <div class="header-instruction-qr">
+                                <P>Cara Membayar</P>
+                            </div>
+
+                            <div class="container-instruction-qr">
+                                <div class="content-instruction-qr">
+                                    <div class="number-instruction-qr">
+                                        1
+                                    </div>
+
+                                    <div class="text-instruction-qr">
+                                        <P>Buka aplikasi e-wallet (Gopay, OVO, Dana,<br> ShopeePay) atau Mobile Banking favorit Anda.</P>
+                                    </div>
+                                </div>
+
+                                <div class="content-instruction-qr">
+                                    <div class="number-instruction-qr">
+                                        2
+                                    </div>
+
+                                    <div class="text-instruction-qr">
+                                        <P>Pilih menu "Scan" atau "Bayar", lalu arahkan<br> kamera ke kode QR di atas.</P>
+                                    </div>
+                                </div>
+
+                                <div class="content-instruction-qr">
+                                    <div class="number-instruction-qr">
+                                        3
+                                    </div>
+
+                                    <div class="text-instruction-qr">
+                                        <P>Masukkan nominal atau konfirmasi<br> pembayaran, lalu masukkan PIN Anda.</P>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 {% else %}
@@ -111,7 +162,8 @@
                         </div>
                     </div>
                 {% endif %}
-
+                
+                {% if transaksi.payment_method != "qris" %}
                 <div class="payment-card instruction-card">
                     <div class="header-instruction-card">
                         <p>Intruksi Pembayaran</p>
@@ -193,6 +245,8 @@
                         </div>
                     </div>
                 </div>
+
+                {% endif %}
             </div>
 
             <!-- RIGHT -->
