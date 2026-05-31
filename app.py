@@ -3,6 +3,7 @@ import re
 from flask import session
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask import request
+import random
 
 app = Flask(__name__)
 
@@ -409,6 +410,26 @@ def FormCheckOut(id_transaksi):
         total_checkout=total_checkout
     )
 
+def generate_va(payment_method):
+    prefix_map = {
+        "bca": "0147",
+        "mandiri": "0088",
+        "bni": "0099"
+    }
+
+    prefix = prefix_map.get(payment_method)
+
+    if not prefix:
+        return None
+
+    random_number = random.randint(10000000, 99999999)
+
+    va = prefix + str(random_number)
+
+    return " ".join(
+        [va[i:i+4] for i in range(0, len(va), 4)]
+    )
+
 @app.route("/placeorder", methods=["POST"])
 def placeOrder():
     if "user_id" not in session:
@@ -445,6 +466,11 @@ def placeOrder():
 
     grand_total = int(total_price) + int(shipping_price)
 
+    va_number = None
+
+    if payment_method != "qris":
+        va_number = generate_va(payment_method)
+
     cursor.execute("""
         UPDATE tb_transaksi
         SET 
@@ -455,6 +481,7 @@ def placeOrder():
             number_user = %s,
             shipping_price = %s,
             payment_method = %s,
+            va_number = %s,
             grand_total = %s,
             status = %s
         WHERE id_transaksi = %s
@@ -467,6 +494,7 @@ def placeOrder():
         number_user,
         shipping_price,
         payment_method,
+        va_number,
         grand_total,
         "ordered",
         id_transaksi,
@@ -529,6 +557,7 @@ def paymentpage():
         transaksi=transaksi,
         payment_info=payment_info
     )
+
 
 
 @app.route('/logout')
