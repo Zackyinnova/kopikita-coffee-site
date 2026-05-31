@@ -479,7 +479,56 @@ def placeOrder():
 
 @app.route('/paymentpage')
 def paymentpage():
-    return render_template('paymentPage.html')
+    if "user_id" not in session:
+        return redirect("/signinpage")
+
+    user_id = session["user_id"]
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT *
+        FROM tb_transaksi
+        WHERE user_id = %s
+        AND status = %s
+        ORDER BY id_transaksi DESC
+        LIMIT 1
+    """, (user_id, "ordered"))
+
+    transaksi = cursor.fetchone()
+
+    if not transaksi:
+        return redirect("/shoppage")
+
+    payment_assets = {
+        "qris": {
+            "title": "Pembayaran Via QRIS",
+            "img": "img/img-payment/qris-img.jpg",
+            "type": "qris"
+        },
+        "bca": {
+            "title": "Transfer Via Bank BCA",
+            "img": "img/img-payment/bca-img.png",
+            "type": "va"
+        },
+        "mandiri": {
+            "title": "Transfer Via Bank Mandiri",
+            "img": "img/img-payment/mandiri-img.png",
+            "type": "va"
+        },
+        "bni": {
+            "title": "Transfer Via Bank BNI",
+            "img": "img/img-payment/bni-img.png",
+            "type": "va"
+        }
+    }
+
+    payment_info = payment_assets.get(transaksi["payment_method"])
+
+    return render_template(
+        "paymentPage.html",
+        transaksi=transaksi,
+        payment_info=payment_info
+    )
 
 
 @app.route('/logout')

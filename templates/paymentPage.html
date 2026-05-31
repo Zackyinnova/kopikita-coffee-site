@@ -46,66 +46,71 @@
 
             <!-- LEFT -->
             <div class="payment-left">
-                <div class="payment-card va-card" id="va-payment">
-                    <div class="header-payment-card">
-                        
-                        <div class="hero-text-payment">
-                            <H6 id="va-payment-type">Virtual Account</H6>
-                            <P id="va-payment-title""></P>
-                        </div>
 
-                        <div class="img-header-payment">
-                            <img id="va-payment-img">
-                        </div>
-                    </div>
-
-                    <div class="info-va-card">
-                        <div class="header-info-va">
-                            <P>Nomor Virtual Account</P>
-                        </div>
-
-                        <div class="main-info-va">
-                            <div class="text-info-va">
-                                <p id="virtual-account-number"></p>
+                {% if transaksi.payment_method == "qris"%}
+                    <div class="payment-card qris-card" id="qris-payment">
+                        <div class="header-payment-card">
+                            
+                            <div class="hero-text-payment">
+                                <h6> Pembayaran QRIS</h6>
+                                <p>{{ payment_info.title }}</p>
                             </div>
 
-                            <div class="icon-copy">
-                                <span class="tabler--copy"></span>
-                                <P>Salin</P>
+                            <div class="img-header-payment">
+                                <img src="{{ url_for('static', filename=payment_info.img) }}">
+                            </div>
+                        </div>
+
+                        
+                        <div class="container-qris-barcode">
+                            <div class="content-qris-barcode">
+                                <img src="/static/img/img-payment/Barcode-qris.png">
                             </div>
                         </div>
                     </div>
 
-                    <div class="line-payment-card">
+                {% else %}
 
-                    </div>
+                    <div class="payment-card va-card" id="va-payment">
+                        <div class="header-payment-card">
+                            
+                            <div class="hero-text-payment">
+                                <H6>{{ payment_info.title }}</H6>
+                                <P id="va-payment-title""></P>
+                            </div>
 
-                    <div class="total-price-payment">
-                        <P>Total Pembayaran</P>
-                        <h4>Rp. 194.000</h4>
-                    </div>
-                </div>
-
-                <div class="payment-card qris-card" id="qris-payment">
-                    <div class="header-payment-card">
-                        
-                        <div class="hero-text-payment">
-                            <h6 id="qris-payment-type">Pembayaran QRIS</h6>
-                            <p id="qris-payment-title"></p>
+                            <div class="img-header-payment">
+                                <img src="{{ url_for('static', filename=payment_info.img) }}">
+                            </div>
                         </div>
 
-                        <div class="img-header-payment">
-                            <img id="qris-payment-img">
-                        </div>
-                    </div>
+                        <div class="info-va-card">
+                            <div class="header-info-va">
+                                <P>Nomor Virtual Account</P>
+                            </div>
 
-                    
-                    <div class="container-qris-barcode">
-                        <div class="content-qris-barcode">
-                            <img src="/static/img/img-payment/Barcode-qris.png">
+                            <div class="main-info-va">
+                                <div class="text-info-va">
+                                    <p id="virtual-account-number"></p>
+                                </div>
+
+                                <div class="icon-copy">
+                                    <span class="tabler--copy"></span>
+                                    <P>Salin</P>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line-payment-card">
+
+                        </div>
+
+                        <div class="total-price-payment">
+                            <P>Total Pembayaran</P>
+                            <h4>Rp. 194.000</h4>
                         </div>
                     </div>
-                </div>
+                {% endif %}
 
                 <div class="payment-card instruction-card">
                     <div class="header-instruction-card">
