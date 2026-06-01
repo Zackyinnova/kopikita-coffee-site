@@ -4,6 +4,7 @@ from flask import session
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask import request
 import random
+import string
 
 app = Flask(__name__)
 
@@ -227,11 +228,28 @@ def addToCart():
 
     cursor = db.cursor(dictionary=True)
 
-    # cek cart aktif
+    # Ambil data product
+    cursor.execute("""
+        SELECT 
+            id_product,
+            nama_product,
+            variant,
+            price
+        FROM tb_product
+        WHERE id_product = %s
+    """, (id_product,))
+
+    product = cursor.fetchone()
+
+    if not product:
+        return redirect("/shoppage")
+
+    # Cek cart aktif
     cursor.execute("""
         SELECT id_transaksi
         FROM tb_transaksi
-        WHERE user_id = %s AND status = %s
+        WHERE user_id = %s 
+        AND status = %s
     """, (user_id, "add to cart"))
 
     transaksi = cursor.fetchone()
@@ -240,14 +258,15 @@ def addToCart():
         id_transaksi = transaksi["id_transaksi"]
     else:
         cursor.execute("""
-            INSERT INTO tb_transaksi (user_id, total_price, status)
+            INSERT INTO tb_transaksi 
+            (user_id, total_price, status)
             VALUES (%s, %s, %s)
         """, (user_id, 0, "add to cart"))
 
         db.commit()
         id_transaksi = cursor.lastrowid
 
-    # cek apakah product sudah ada di cart detail
+    # Cek product sudah ada di cart atau belum
     cursor.execute("""
         SELECT id, qty
         FROM tb_transaksi_detail
@@ -258,35 +277,38 @@ def addToCart():
     existing_item = cursor.fetchone()
 
     if existing_item:
-        # kalau sudah ada, tambah qty
         cursor.execute("""
             UPDATE tb_transaksi_detail
             SET qty = qty + 1
             WHERE id = %s
         """, (existing_item["id"],))
     else:
-        # kalau belum ada, insert baru
         cursor.execute("""
             INSERT INTO tb_transaksi_detail
-            (id_transaksi, id_product, qty)
-            VALUES (%s, %s, %s)
-        """, (id_transaksi, id_product, 1))
+            (
+                id_transaksi,
+                product_name,
+                variant,
+                price,
+                qty,
+                id_product
+            )
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """, (
+            id_transaksi,
+            product["nama_product"],
+            product["variant"],
+            product["price"],
+            1,
+            id_product
+        ))
 
-    # ambil harga product
+    # Update total cart
     cursor.execute("""
-        SELECT price
-        FROM tb_product
-        WHERE id_product = %s
-    """, (id_product,))
-
-    product = cursor.fetchone()
-
-    if product:
-        cursor.execute("""
-            UPDATE tb_transaksi
-            SET total_price = total_price + %s
-            WHERE id_transaksi = %s
-        """, (product["price"], id_transaksi))
+        UPDATE tb_transaksi
+        SET total_price = total_price + %s
+        WHERE id_transaksi = %s
+    """, (product["price"], id_transaksi))
 
     db.commit()
 
@@ -430,6 +452,9 @@ def generate_va(payment_method):
         [va[i:i+4] for i in range(0, len(va), 4)]
     )
 
+def generate_order_id(id_transaksi):
+    return f"KOP-{id_transaksi:06d}"
+
 @app.route("/placeorder", methods=["POST"])
 def placeOrder():
     if "user_id" not in session:
@@ -466,6 +491,8 @@ def placeOrder():
 
     grand_total = int(total_price) + int(shipping_price)
 
+    order_id = generate_order_id(id_transaksi)
+
     va_number = None
 
     if payment_method != "qris":
@@ -483,6 +510,7 @@ def placeOrder():
             payment_method = %s,
             va_number = %s,
             grand_total = %s,
+            order_id = %s,
             status = %s
         WHERE id_transaksi = %s
         AND user_id = %s
@@ -496,6 +524,7 @@ def placeOrder():
         payment_method,
         va_number,
         grand_total,
+        order_id,
         "ordered",
         id_transaksi,
         user_id
@@ -584,6 +613,7 @@ def confirm_payment():
     db.commit()
 
     return redirect(f"/invoicePage/{id_transaksi}")
+
 
 @app.route("/invoicePage/<int:id_transaksi>")
 def invoicePage(id_transaksi):
