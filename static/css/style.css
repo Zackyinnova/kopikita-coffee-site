@@ -2438,6 +2438,44 @@ a{
         align-items: center;
     }
 
+    /*paymentpage.html*/
+
+    .container-payment-page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .header-payment{
+        text-align: center;
+        width: 90%;
+    }
+
+    .header-payment h3{
+        font-size: 25px;  
+    }
+
+    .payment-content{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .payment-left,
+    .payment-right{
+        width: 100%;
+    }
+
+    .payment-card.help-card{
+        margin-bottom: 50px;
+    }
+
+    .text-help-card{
+        line-height: 1.5;
+    }
+
 }
 
 .ic--round-star {
