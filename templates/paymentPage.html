@@ -448,10 +448,18 @@
                         </div>
                     </div>
 
-                    <div class="button-status-card">
-                        <button class="alrd-buy"> Saya Sudah Bayar</button>
-                        <button class="check-status">Check Status Otomatis</button>
-                    </div>
+                    <form action="/confirm-payment" method="POST">
+
+                        <input
+                            type="hidden"
+                            name="id_transaksi"
+                            value="{{ transaksi.id_transaksi }}"
+                        >
+                        <div class="button-status-card">
+                            <button class="alrd-buy"> Saya Sudah Bayar</button>
+                            <button class="check-status">Check Status Otomatis</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="payment-card help-card">

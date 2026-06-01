@@ -559,6 +559,55 @@ def paymentpage():
     )
 
 
+@app.route("/confirm-payment", methods=["POST"])
+def confirm_payment():
+
+    if "user_id" not in session:
+        return redirect("/signinpage")
+
+    user_id = session["user_id"]
+    id_transaksi = request.form.get("id_transaksi")
+
+    cursor = db.cursor()
+
+    cursor.execute("""
+        UPDATE tb_transaksi
+        SET status = %s
+        WHERE id_transaksi = %s
+        AND user_id = %s
+    """, (
+        "waiting_confirmation",
+        id_transaksi,
+        user_id
+    ))
+
+    db.commit()
+
+    return redirect(f"/invoicePage/{id_transaksi}")
+
+@app.route("/invoicePage/<int:id_transaksi>")
+def invoicePage(id_transaksi):
+
+    if "user_id" not in session:
+        return redirect("/signinpage")
+
+    user_id = session["user_id"]
+
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT *
+        FROM tb_transaksi
+        WHERE id_transaksi = %s
+        AND user_id = %s
+    """, (id_transaksi, user_id))
+
+    transaksi = cursor.fetchone()
+
+    return render_template(
+        "InvoicePage.html",
+        transaksi=transaksi
+    )
 
 @app.route('/logout')
 def logout():
