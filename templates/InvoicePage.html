@@ -36,9 +36,84 @@
             </div>
 
             <div class="order-id">
-                <P>Order Id:<B>{{ transaksi.order_id }}</B></P>
+                <P>Order Id:<B> {{ transaksi.order_id }}</B> • {{ transaksi.created_at.strftime('%y-%m-%d %H:%M') }}</P>
+                <div class="button-help-invoice">
+                    <button>Bantuan</button>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="container-status-invoice">
+<div class="content-status-invoice">
+
+    <div class="main-status 
+        {% if transaksi.status == 'waiting confirmation' %}
+            current
+        {% elif transaksi.status in ['processing', 'shipping', 'completed'] %}
+            completed
+        {% else %}
+            pending
+        {% endif %}
+    ">
+        <div class="icon-status">
+            <span class="material-symbols--timer-outline"></span>
+        </div>
+        <div class="text-status">
+            <p>Menunggu Konfirmasi</p>
+        </div>
+    </div>
+
+    <div class="main-status 
+        {% if transaksi.status == 'processing' %}
+            current
+        {% elif transaksi.status in ['shipping', 'completed'] %}
+            completed
+        {% else %}
+            pending
+        {% endif %}
+    ">
+        <div class="icon-status">
+            <span class="material-symbols--coffee-outline-rounded"></span>
+        </div>
+        <div class="text-status">
+            <p>Pesanan Diproses</p>
+        </div>
+    </div>
+
+    <div class="main-status 
+        {% if transaksi.status == 'shipping' %}
+            current
+        {% elif transaksi.status == 'completed' %}
+            completed
+        {% else %}
+            pending
+        {% endif %}
+    ">
+        <div class="icon-status">
+            <span class="mdi--truck-outline"></span>
+        </div>
+        <div class="text-status">
+            <p>Pesanan Diantar</p>
+        </div>
+    </div>
+
+    <div class="main-status 
+        {% if transaksi.status == 'completed' %}
+            current completed
+        {% else %}
+            pending
+        {% endif %}
+    ">
+        <div class="icon-status">
+            <span class="mdi--location-outline"></span>
+        </div>
+        <div class="text-status">
+            <p>Pesanan Sampai</p>
+        </div>
+    </div>
+
+</div>
     </div>
 </body>
 </html>

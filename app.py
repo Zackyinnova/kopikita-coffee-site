@@ -605,7 +605,7 @@ def confirm_payment():
         WHERE id_transaksi = %s
         AND user_id = %s
     """, (
-        "waiting_confirmation",
+        "waiting confirmation",
         id_transaksi,
         user_id
     ))

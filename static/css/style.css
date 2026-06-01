@@ -2017,6 +2017,10 @@ a{
 
 .content-header-invoice{
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
 }
 
 .status-order{
@@ -2028,8 +2032,127 @@ a{
     display: inline-block;
 }
 
-.status-order p{
-    font-size: 12px;
+.header-invoice p{
+    font-size: 15px;
+}
+
+.order-id{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-help-invoice{
+    border: 1px solid black;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.button-help-invoice button{
+    all: unset;
+}
+
+.container-status-invoice{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.content-status-invoice{
+    border: 1px solid #E9E2DA;
+    background-color: #F4EDE5;
+    width: 50%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 40px 30px;
+    border-radius: 12px;
+
+}
+
+.main-status{
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-status{
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+
+    position: relative;
+    z-index: 2;
+}
+
+.main-status:not(:last-child)::after{
+    content: "";
+
+    position: absolute;
+
+    top: 25px;
+    left: 50%;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: #D6CEC6;
+
+    z-index: 1;
+}
+
+.text-status{
+    text-align: center;
+}
+
+.text-status p{
+    font-size: 13px;
+    margin: 0;
+}
+
+.main-status.completed .icon-status {
+    background-color: #2D2926;
+    color: white;
+}
+
+.main-status.current .icon-status {
+    background-color: #2D2926;
+    color: white;
+    animation: blinkStep 1s infinite;
+}
+
+.main-status.pending .icon-status {
+    background-color: #E3DCD5;
+    color: #8A817A;
+}
+
+@keyframes blinkStep {
+    0% {
+        box-shadow: 0 0 0 0 rgba(45, 41, 38, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(45, 41, 38, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(45, 41, 38, 0);
+    }
 }
 
 @media(max-width:600px){
@@ -2766,6 +2889,45 @@ a{
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
+
+.material-symbols--timer-outline {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M9 3V1h6v2zm2 11h2V8h-2zm-2.488 7.288q-1.637-.713-2.862-1.938t-1.937-2.863T3 13t.713-3.488T5.65 6.65t2.863-1.937T12 4q1.55 0 2.975.5t2.675 1.45l1.4-1.4l1.4 1.4l-1.4 1.4Q20 8.6 20.5 10.025T21 13q0 1.85-.713 3.488T18.35 19.35t-2.863 1.938T12 22t-3.488-.712m8.438-3.338Q19 15.9 19 13t-2.05-4.95T12 6T7.05 8.05T5 13t2.05 4.95T12 20t4.95-2.05M12 13'/%3E%3C/svg%3E");
+}
+
+.material-symbols--coffee-outline-rounded {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M11 18q-2.925 0-4.962-2.037T4 11V5q0-.825.588-1.412T6 3h12.5q1.45 0 2.475 1.025T22 6.5t-1.025 2.475T18.5 10H18v1q0 2.925-2.037 4.963T11 18M6 8h10V5H6zm5 8q2.075 0 3.538-1.463T16 11v-1H6v1q0 2.075 1.463 3.538T11 16m7-8h.5q.625 0 1.063-.437T20 6.5t-.437-1.062T18.5 5H18zM5 21q-.425 0-.712-.288T4 20t.288-.712T5 19h14q.425 0 .713.288T20 20t-.288.713T19 21zm6-11'/%3E%3C/svg%3E");
+}
+
+.mdi--truck-outline {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M18 18.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5s.67 1.5 1.5 1.5m1.5-9H17V12h4.46zM6 18.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5s.67 1.5 1.5 1.5M20 8l3 4v5h-2c0 1.66-1.34 3-3 3s-3-1.34-3-3H9c0 1.66-1.34 3-3 3s-3-1.34-3-3H1V6c0-1.11.89-2 2-2h14v4zM3 6v9h.76c.55-.61 1.35-1 2.24-1s1.69.39 2.24 1H15V6z'/%3E%3C/svg%3E");
+}
+
+.mdi--location-outline {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7m0 2a5 5 0 0 0-5 5c0 1 0 3 5 9.71C17 12 17 10 17 9a5 5 0 0 0-5-5'/%3E%3C/svg%3E");
+}
+
+
+
 
 
 
