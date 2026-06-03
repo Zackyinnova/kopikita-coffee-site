@@ -213,11 +213,87 @@
             </div>
 
             <div class="right-main-invoice">
-                <div class="item-list-invoice">
-                    <div class="header-item-list">
-                        <P>Item Pesanan</P>
+
+                <div class="info-payment invoicepage">
+                    <div class="header-payment-invoice">
+                        <P>Ringkasan Pembayaran</P>
+                    </div>
+
+                    <div class="info-price-list">
+                        <div class="text-price-list">
+                            <div class="left-price-list">
+                                <P>Subtotal</P>
+                            </div>
+
+                            <div class="right-price-list">
+                                <P>Rp. {{ "{:,.0f}".format(transaksi.total_price).replace(",", ".") }}</P>
+                            </div>
+                        </div>
+
+                        <div class="text-price-list">
+                            <div class="left-price-list">
+                                <P>Biaya Kirim</P>
+                            </div>
+
+                            <div class="right-price-list">
+                                Rp. {{ "{:,.0f}".format(transaksi.shipping_price).replace(",", ".") }}
+                            </div>
+                        </div>
+
+                        
+                        <div class="text-price-list diskon">
+                            <div class="left-price-list">
+                                <P>Diskon Promo</P>
+                            </div>
+
+                            <div class="right-price-list">
+                                <P>Rp. 0</P>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-price-list grandtotal">
+                        <div class="text-price-list">
+                            <div class="left-price-list">
+                                <P>Total Bayar</P>
+                            </div>
+
+                            <div class="right-price-list">
+                                <P>Rp. {{ "{:,.0f}".format(transaksi.grand_total).replace(",", ".") }}</P>
+                            </div>
+                        </div>        
+                    </div>
+
+                    <div class="bank-payment">
+                        <div class="header-invoice-payment">
+                            <P>METODE PEMBAYARAN</P>
+
+                        </div>
+                        <div class="text-invoice-payment">
+                            <div class="left-payment-list">
+                                <P>{{transaksi.payment_method}}</P>
+
+                            </div>
+
+                            <div class="right-price-list">
+                                {% if transaksi.payment_method == "qris" %}
+                                    <p>Pembayaran QRIS</p>
+                                {% else %}
+                                    <p>Virtual Account</p>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <a href="/">
+                    <div class="button-back-home">
+                        <button>
+                            <span class="line-md--arrow-left"></span>
+                            <P>Kembali Ke Beranda</P>
+                        </button>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
