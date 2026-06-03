@@ -2156,7 +2156,6 @@ a{
 }
 
 .container-main-invoice{
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     margin-top: 30px;
@@ -2178,7 +2177,8 @@ a{
 .item-list-invoice{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+
 }
 
 .right-main-invoice{
@@ -2187,10 +2187,12 @@ a{
 }
 
 .main-item-list{
-    background-color: white;
-    border: 1px solid #D6CEC6;
-    padding: 14px 14px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 250px;
+    padding-right: 10px;
+    overflow-y: auto;
 }
 
 .img-product-list img{
@@ -2203,6 +2205,10 @@ a{
 
 .container-product-list{
     display: flex;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #D6CEC6;
+    padding: 14px 14px;
     gap: 20px;
 }
 
@@ -2218,6 +2224,10 @@ a{
 
 .name-variant{
     font-size: 12px;
+    color: #555;
+}
+
+.qty-item-invoice{
     color: #555;
 }
 
