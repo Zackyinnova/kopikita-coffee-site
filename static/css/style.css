@@ -2159,6 +2159,7 @@ a{
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .content-main-invoice{
@@ -2170,7 +2171,6 @@ a{
 }
 
 .left-main-invoice{
-
     width: 100%;
 }
 
@@ -2229,6 +2229,65 @@ a{
 
 .qty-item-invoice{
     color: #555;
+}
+
+.driver-information-invoice{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: start;
+}
+
+.content-driver-info{
+    background-color: #FAF2EB;
+    border: 1px solid #D6CEC6;
+    padding: 14px 14px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-driver{
+    display: flex;
+    gap: 20px;
+}
+
+
+.header-driver{
+    color: #5F5E5B;
+}
+
+.icon-driver{
+    display: flex;
+}
+
+.text-driver p{ 
+    font-weight: 600;
+}
+
+.text-address p{
+    font-size: 13px;
+}
+
+.main-driver.bottom{
+    border-top: 1px solid #CFC4BD;
+    margin-top: 10px;
+    padding-top: 10px;
+    display: flex;
+
+}
+
+.icon-driver.bottom{
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid #CFC4BD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
 }
 
 @media(max-width:600px){
@@ -3001,6 +3060,37 @@ a{
   background-size: 100% 100%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7m0 2a5 5 0 0 0-5 5c0 1 0 3 5 9.71C17 12 17 10 17 9a5 5 0 0 0-5-5'/%3E%3C/svg%3E");
 }
+
+.icon-park-outline--people {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='none' stroke='%235f5e5b' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M24 20a7 7 0 1 0 0-14a7 7 0 0 0 0 14M6 40.8V42h36v-1.2c0-4.48 0-6.72-.872-8.432a8 8 0 0 0-3.496-3.496C35.92 28 33.68 28 29.2 28H18.8c-4.48 0-6.72 0-8.432.872a8 8 0 0 0-3.496 3.496C6 34.08 6 36.32 6 40.8'/%3E%3C/svg%3E");
+}
+
+
+.material-symbols-light--location-on-outline {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235f5e5b' d='M13.143 11.259q.473-.472.473-1.143q0-.672-.473-1.144Q12.671 8.5 12 8.5t-1.143.472t-.472 1.144q0 .67.472 1.143q.472.472 1.143.472t1.143-.472M12 19.677q2.82-2.454 4.458-4.991t1.638-4.39q0-2.744-1.737-4.53Q14.62 3.981 12 3.981T7.641 5.766t-1.737 4.53q0 1.852 1.638 4.39T12 19.677m0 1.342q-3.525-3.117-5.31-5.814q-1.786-2.697-1.786-4.909q0-3.173 2.066-5.234Q9.037 3 12 3t5.03 2.062q2.066 2.061 2.066 5.234q0 2.212-1.785 4.909q-1.786 2.697-5.311 5.814m0-10.903'/%3E%3C/svg%3E");
+}
+
+
+.material-symbols--motorcycle-outline {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235f5e5b' d='M10.7 11H8.95h3.75zM5 19q-2.075 0-3.537-1.463T0 14t1.463-3.537T5 9h11.6l-2-2H11V5h3.575q.4 0 .763.15t.637.425L19.45 9.05q1.95.15 3.25 1.575T24 14q0 2.075-1.463 3.538T19 19t-3.537-1.463T14 14q0-.45.063-.888t.237-.862L11.55 15H9.9q-.35 1.75-1.725 2.875T5 19m14-2q1.25 0 2.125-.875T22 14t-.875-2.125T19 11t-2.125.875T16 14t.875 2.125T19 17M5 17q.95 0 1.713-.55T7.8 15H5v-2h2.8q-.325-.9-1.087-1.45T5 11q-1.25 0-2.125.875T2 14t.875 2.125T5 17m4.95-4h.75l2-2H8.95q.375.425.625.925T9.95 13'/%3E%3C/svg%3E");
+}
+
+
 
 
 

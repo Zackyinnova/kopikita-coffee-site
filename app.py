@@ -635,10 +635,15 @@ def invoicePage(id_transaksi):
     """, (id_transaksi, user_id))
 
     transaksi = cursor.fetchone()
+    
+    if not transaksi:
+        return redirect("/shoppage")
 
     cursor.execute("""
         SELECT 
             t.id_transaksi,
+            t.first_name,
+            t.last_name,
             t.total_price,
             t.grand_total,
             t.status,
