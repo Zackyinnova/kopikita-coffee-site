@@ -623,6 +623,8 @@ def invoicePage(id_transaksi):
 
     user_id = session["user_id"]
 
+    db.commit()
+
     cursor = db.cursor(dictionary=True)
 
     cursor.execute("""
@@ -634,9 +636,34 @@ def invoicePage(id_transaksi):
 
     transaksi = cursor.fetchone()
 
+    cursor.execute("""
+        SELECT 
+            t.id_transaksi,
+            t.total_price,
+            t.grand_total,
+            t.status,
+            td.id,
+            td.qty,
+            p.id_product,
+            p.nama_product,
+            p.variant,
+            p.price,
+            p.path_img
+        FROM tb_transaksi t
+        JOIN tb_transaksi_detail td 
+            ON t.id_transaksi = td.id_transaksi
+        JOIN tb_product p 
+            ON td.id_product = p.id_product
+        WHERE t.user_id = %s
+        AND t.id_transaksi = %s
+    """, (user_id, id_transaksi))
+
+    checkout_items = cursor.fetchall()
+
     return render_template(
         "InvoicePage.html",
-        transaksi=transaksi
+        transaksi=transaksi,
+        checkout_items=checkout_items
     )
 
 @app.route('/logout')

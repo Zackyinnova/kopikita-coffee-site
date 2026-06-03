@@ -45,75 +45,132 @@
     </div>
 
     <div class="container-status-invoice">
-<div class="content-status-invoice">
+        <div class="content-status-invoice">
 
-    <div class="main-status 
-        {% if transaksi.status == 'waiting confirmation' %}
-            current
-        {% elif transaksi.status in ['processing', 'shipping', 'completed'] %}
-            completed
-        {% else %}
-            pending
-        {% endif %}
-    ">
-        <div class="icon-status">
-            <span class="material-symbols--timer-outline"></span>
-        </div>
-        <div class="text-status">
-            <p>Menunggu Konfirmasi</p>
+            <div class="main-status 
+                {% if transaksi.status == 'waiting confirmation' %}
+                    current
+                {% elif transaksi.status in ['processing', 'shipping', 'completed'] %}
+                    completed
+                {% else %}
+                    pending
+                {% endif %}
+            ">
+                <div class="icon-status">
+                    <span class="material-symbols--timer-outline"></span>
+                </div>
+                <div class="text-status">
+                    <p>Menunggu Konfirmasi</p>
+                </div>
+            </div>
+
+            <div class="main-status 
+                {% if transaksi.status == 'processing' %}
+                    current
+                {% elif transaksi.status in ['shipping', 'completed'] %}
+                    completed
+                {% else %}
+                    pending
+                {% endif %}
+            ">
+                <div class="icon-status">
+                    <span class="material-symbols--coffee-outline-rounded"></span>
+                </div>
+                <div class="text-status">
+                    <p>Pesanan Diproses</p>
+                </div>
+            </div>
+
+            <div class="main-status 
+                {% if transaksi.status == 'shipping' %}
+                    current
+                {% elif transaksi.status == 'completed' %}
+                    completed
+                {% else %}
+                    pending
+                {% endif %}
+            ">
+                <div class="icon-status">
+                    <span class="mdi--truck-outline"></span>
+                </div>
+                <div class="text-status">
+                    <p>Pesanan Diantar</p>
+                </div>
+            </div>
+
+            <div class="main-status 
+                {% if transaksi.status == 'completed' %}
+                    current completed
+                {% else %}
+                    pending
+                {% endif %}
+            ">
+                <div class="icon-status">
+                    <span class="mdi--location-outline"></span>
+                </div>
+                <div class="text-status">
+                    <p>Pesanan Sampai</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="main-status 
-        {% if transaksi.status == 'processing' %}
-            current
-        {% elif transaksi.status in ['shipping', 'completed'] %}
-            completed
-        {% else %}
-            pending
-        {% endif %}
-    ">
-        <div class="icon-status">
-            <span class="material-symbols--coffee-outline-rounded"></span>
-        </div>
-        <div class="text-status">
-            <p>Pesanan Diproses</p>
-        </div>
-    </div>
+    <div class="container-main-invoice">
+        <div class="content-main-invoice">
+            <div class="left-main-invoice">
 
-    <div class="main-status 
-        {% if transaksi.status == 'shipping' %}
-            current
-        {% elif transaksi.status == 'completed' %}
-            completed
-        {% else %}
-            pending
-        {% endif %}
-    ">
-        <div class="icon-status">
-            <span class="mdi--truck-outline"></span>
-        </div>
-        <div class="text-status">
-            <p>Pesanan Diantar</p>
-        </div>
-    </div>
+                <div class="item-list-invoice">
+                    <div class="header-item-list">
+                        <P>Item Pesanan</P>
+                    </div>
 
-    <div class="main-status 
-        {% if transaksi.status == 'completed' %}
-            current completed
-        {% else %}
-            pending
-        {% endif %}
-    ">
-        <div class="icon-status">
-            <span class="mdi--location-outline"></span>
-        </div>
-        <div class="text-status">
-            <p>Pesanan Sampai</p>
-        </div>
-    </div>
+                    <div class="main-item-list">
+                        {% for item in checkout_items %}
+                        <div class="container-product-list">
+                            <div class="img-product-list">
+                                <img src="{{ url_for('static', filename=item.path_img) }}">
+                            </div>
 
-</div>
+                            <div class="detail-product-list">
+                                <div class="name-product-list">
+                                    <P>{{ item.nama_product }}</P>
+                                    <P class="name-variant">{{item.variant}}</P>
+                                </div>
+
+                                <div class="price-produt-list">
+                                    <div class="left-product-list">
+                                        {{ item.qty }}x
+                                    </div>
+                                    
+                                    <div class="right-product-list">
+                                        <P>Rp. {{ item.price * item.qty }}</P>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-main-invoice">
+                <div class="item-list-invoice">
+                    <div class="header-item-list">
+                        <P>Item Pesanan</P>
+                    </div>
+
+                    <div class="main-item-list">
+                        {% for item in checkout_items %}
+                        <div class="container-product-list">
+                            <P>{{ item.nama_product }}</P>
+                        </div> 
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
