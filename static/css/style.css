@@ -1095,54 +1095,97 @@ a{
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
+
+.header-accountpage{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.content-header-accountpage{
+    width: 64%;
+}
+
+.main-accountpage{
+    padding: 30px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .container-accountpage{
     display: flex;
-    width: 80%;
-    justify-content: center;
-    align-items: start;
-    flex-direction: row;
-    gap: 20px;
-    margin-top: 20px;
+    width: 64%;
+    gap: 50px;
 }
 
 .content-accountpage{
-    width: 80%;
+    width: 100%;
 }
 
-.main-accountpage.history{
-    height: 500px;
-
-}
-
-
-.title-accountpage p{
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.main-accountpage{
-    border: 1px solid #E5E5E5;
+.container-info-account{
+    border: 1px solid #D2C8C2;
+    padding: 20px 20px;
     background-color: white;
-    display: flex;
     border-radius: 10px;
+}
+
+.header-info-account{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-info-account p{
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.icon-profil{
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-content-account{
     margin-top: 20px;
+    display: flex;
     flex-direction: column;
-    padding: 20px 30px;
     gap: 10px;
 }
 
-.account-item{
+.content-account{
+    border-bottom: 1px solid #D2C8C2;
     display: flex;
+    padding-bottom: 8px;
+    gap: 4px;
     flex-direction: column;
+}
 
+.header-content-account{
+    color: #7E777D;
+    font-weight: 500;
+}
+
+.data-account{
+    display: flex;
+    justify-content: space-between;
 
 }
 
-.account-value{
-    display: flex;
-    justify-content: space-between;
+.data-info{
+    font-weight: 600;
+}
+
+.data-edit{
+    font-weight: 500;
 }
 
 .logout-button{
@@ -1156,13 +1199,10 @@ a{
     color: white;
     font-weight: 500;
     text-align: center;
-    padding: 6px 0px;
+    padding: 10px 0px;
     width: 100%;
 }
 
-.icon-cart{
-    display: none;
-}
 
 /*for styling form_checkout*/
 
@@ -3146,6 +3186,18 @@ a{
   background-size: 100% 100%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='none' stroke='%235f5e5b' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M24 20a7 7 0 1 0 0-14a7 7 0 0 0 0 14M6 40.8V42h36v-1.2c0-4.48 0-6.72-.872-8.432a8 8 0 0 0-3.496-3.496C35.92 28 33.68 28 29.2 28H18.8c-4.48 0-6.72 0-8.432.872a8 8 0 0 0-3.496 3.496C6 34.08 6 36.32 6 40.8'/%3E%3C/svg%3E");
 }
+
+
+.icon-park-outline--peopler {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M24 20a7 7 0 1 0 0-14a7 7 0 0 0 0 14M6 40.8V42h36v-1.2c0-4.48 0-6.72-.872-8.432a8 8 0 0 0-3.496-3.496C35.92 28 33.68 28 29.2 28H18.8c-4.48 0-6.72 0-8.432.872a8 8 0 0 0-3.496 3.496C6 34.08 6 36.32 6 40.8'/%3E%3C/svg%3E");
+}
+
+
 
 
 .material-symbols-light--location-on-outline {

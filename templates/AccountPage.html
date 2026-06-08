@@ -101,7 +101,7 @@
     </div>
 
     <div class="section-accountpage">
-        <div class="container-accountpage">
+        <!--<div class="container-accountpage">
 
             <div class="content-accountpage">
                 <div class="title-accountpage">
@@ -157,6 +157,79 @@
 
                 <div class="main-accountpage history">
                     
+                </div>
+            </div>
+        </div>-->
+
+        <div class="header-accountpage">
+            <div class="content-header-accountpage">
+                <h1>Akun Saya</h1>
+                <p>Kelola profil dan pantau ritual kopi Anda.</p>
+            </div>
+        </div>
+
+        <div class="main-accountpage">
+            <div class="container-accountpage">
+                <div class="content-accountpage left">
+                    <div class="container-info-account">
+                        
+                        <div class="header-info-account">
+                            <P>Profil Saya</P>
+                            <div class="icon-profil">
+                                <span class="icon-park-outline--peopler"></span>
+                            </div>
+                        </div>
+
+                        <div class="container-content-account">
+
+                            <div class="content-account">
+
+                                <div class="header-content-account">
+                                    <P>Username</P>
+                                </div>
+
+                                <div class="data-account">
+                                    <P class="data-info">{{ session.name }}</P>
+                                    <P class="data-edit">Edit</P>
+                                </div>
+                            </div>
+
+                            <div class="content-account">
+
+                                <div class="header-content-account">
+                                    <P>Email</P>
+                                </div>
+
+                                <div class="data-account">
+                                    <P class="data-info">{{ session.email }}</P>
+                                    <P class="data-edit">Edit</P>
+                                </div>
+                            </div>
+
+                            <div class="content-account">
+
+                                <div class="header-content-account">
+                                    <P>Password</P>
+                                </div>
+
+                                <div class="data-account">
+                                    <P class="data-info">{{ session.get('password') }}</P>
+                                    <P class="data-edit">Edit</P>
+                                </div>
+                            </div>
+
+                            <div class="logout-button">
+                                <button>
+                                    <a href="{{ url_for('logout') }}">Logout</a>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-accountpage right">
+                    <p>woe</p>
                 </div>
             </div>
         </div>
