@@ -1212,6 +1212,7 @@ a{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-right: 8px;
 }
 
 .content-history-order{
@@ -1221,6 +1222,7 @@ a{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-radius: 10px;
 }
 
 .content-header-history{
