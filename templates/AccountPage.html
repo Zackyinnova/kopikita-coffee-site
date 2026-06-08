@@ -101,65 +101,6 @@
     </div>
 
     <div class="section-accountpage">
-        <!--<div class="container-accountpage">
-
-            <div class="content-accountpage">
-                <div class="title-accountpage">
-                    <p>Profil</p>
-                </div>
-
-                <div class="main-accountpage">
-                    <div class="account-item">
-                        <span class="account-label">Username :</span>
-                        <span class="account-value">
-                            <p>{{ session.name }}</p>
-                            <P>Edit</P>
-                        </span>
-                    </div>
-
-                    <div class="account-item">
-                        <span class="account-label">Email :</span>
-                        <span class="account-value">
-                            <p>{{ session.email }}</p>
-                            <P>Edit</P>
-                        </span>
-                    </div>
-
-                    <div class="account-item">
-                        <span class="account-label">Alamat :</span>
-                        <span class="account-value">
-                            <P>zackyinova</P>
-                            <P>Edit</P>
-                        </span>
-                    </div>
-
-                    
-                    <div class="account-item">
-                        <span class="account-label">Password :</span>
-                        <span class="account-value">
-                            <P>{{ session.get('password') }}</P>
-                            <P>Edit</P>
-                        </span>
-                    </div>
-
-                    <div class="logout-button">
-                        <button>
-                            <a href="{{ url_for('logout') }}">Logout</a>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-accountpage">
-                <div class="title-accountpage">
-                    <p>History Order</p>
-                </div>
-
-                <div class="main-accountpage history">
-                    
-                </div>
-            </div>
-        </div>-->
 
         <div class="header-accountpage">
             <div class="content-header-accountpage">
@@ -229,7 +170,57 @@
                 </div>
 
                 <div class="content-accountpage right">
-                    <p>woe</p>
+                    <div class="header-info-account">
+                        <P>Riwayat Pemesanan</P>
+                    </div>
+
+                    <div class="container-history-order">
+
+                        {% for trx in transaksi %}
+                        <div class="content-history-order">
+                            <div class="header-history-order">
+                                <div class="content-header-history">
+                                    <div class="header-history left">
+                                        <P><b>Pesanan #{{trx.order_id}}</b></P>
+                                        <p>{{ trx.created_at.strftime('%Y-%m-%d') }}</p>
+                                    </div>
+
+                                    <div class="header-history right">
+                                        <P>{{ trx.status}}</P>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-main-history">
+                                <div class="left-content-history">
+                                    <div class="img-product-history">
+                                        <img src="{{ url_for('static', filename=trx.path_img) }}">
+                                    </div>
+
+                                    <div class="detail-product-history">
+                                        <P>{{trx.nama_product}}</P>
+                                        {% if trx.jumlah_produk > 1 %}
+                                            <p>Dan {{ trx.jumlah_produk - 1 }} item lainnya</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="right-content-history">
+                                    <div class="detail-total-history">
+                                        <P>Rp. {{ "{:,.0f}".format(trx.grand_total).replace(",", ".") }}</P>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-detail">
+                                <a href="">
+                                    <button>Detail</button>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
                 </div>
             </div>
         </div>
