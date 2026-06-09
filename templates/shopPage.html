@@ -42,6 +42,12 @@
                     <P>Account</P>
                 </a>
             </div>
+
+            <div class="nav">
+                <a href="{{ url_for('addproduct') }}">
+                    <P>addproduct</P>
+                </a>
+            </div>
         </div>
 
         <div class="icon-cart" id="icon-cart">
@@ -69,15 +75,15 @@
             </div>
 
             <div class="content-nav-shop" id="button-nav-shop" data-target="ground">
-                <p>Ground Coffe</p>
+                <p>Whole Bean</p>
             </div>
 
             <div class="content-nav-shop" id="button-nav-shop" data-target="cold">
-                <p>Cold Brew</p>
+                <p>Glass Bottle</p>
             </div>
 
             <div class="content-nav-shop" id="button-nav-shop" data-target="drip">
-                <p>Drip Coffe Pack</p>
+                <p>Snack Pack</p>
             </div>
         </div>
     </div>
@@ -224,9 +230,9 @@
                     </div>
 
                     <div class="text-card">
-                        <p>Classic Cold Brew</p>
+                        <p>Kopikita Americano Bottle</p>
                         <div class="price-card">
-                            <p>Rp 90.000,00</p>
+                            <p>Rp 50.000,00</p>
                         </div>
 
                         <div class="review-card">
@@ -253,22 +259,32 @@
                         </div>
 
                         <div class="color-taste">
-                            <div class="main-color"  style="background-color: #4B2E2B;"></div>
+                            <div class="main-color"  
+                                style="background-color: #4B2E2B;"
+                                data-id-product="7">
+                                
+                            </div>
                         </div>
                     </div>
 
-                    <button>Add To Chart</button>
+                    <form action="/add-to-cart" method="POST">
+                        <input type="hidden" name="id_product" class="selected-product-id" value="1">
+
+                        <button type="submit" class="btn-add-cart">
+                            Add to Cart
+                        </button>
+                    </form>
                 </div>
 
                 <div class="card-product-page">
                     <div class="img-card">
-                        <img src="../static/img/img-product1/rasa-alpukat.jpg">
+                        <img src="../static/img/img-product/Product 4.jpg">
                     </div>
 
                     <div class="text-card">
-                        <p>Ground Coffee</p>
+                        <p>Premium Coffee</p>
                         <div class="price-card">
-                            <p>Rp 90.000,00</p>
+                            <p>Rp 30.000,00</p>
                         </div>
 
                         <div class="review-card">
@@ -288,6 +304,33 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="container-taste">
+                        <div class="content-taste" id="text-taste">
+                            <p class="text-taste show">Aceh Gayo Cold Brew</p>
+                            <P class="text-taste">Toraja Cold Brew</P>
+                            <P class="text-taste">Java Cold Brew</P>
+                        </div>
+
+                        <div class="color-taste">
+                            <div class="main-color"  
+                                    style="background-color: #2E7D32;"
+                                    data-id-product="8">
+
+                            </div>
+
+                            <div class="main-color"  
+                                    style="background-color: #5D4037;"
+                                    data-id-product="9">
+                            </div>
+
+                            <div class="main-color" 
+                                 style="background-color: #1A237E;"
+                                 data-id-product="10">
+                            
+                                </div>
+                        </div>
+                    </div>  
 
                     <button>Add To Chart</button>
                 </div>

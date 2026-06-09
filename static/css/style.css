@@ -1111,7 +1111,7 @@ a{
 }
 
 .main-accountpage{
-    padding: 30px 0px;
+    padding: 10px 0px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -2554,6 +2554,10 @@ a{
     gap: 10px;
     padding: 8px 0px;
     border-radius: 10px;
+}
+
+.icon-cart{
+    display: none;
 }
 
 @media(max-width:600px){
