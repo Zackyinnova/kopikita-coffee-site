@@ -1093,6 +1093,7 @@ a{
 /*style for accountpage*/
 .section-accountpage{
     width: 100%;
+    margin-bottom: 80px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -1289,6 +1290,8 @@ a{
     padding: 4px 20px;
     border-radius: 10px;
 }
+
+
 
 /*for styling form_checkout*/
 

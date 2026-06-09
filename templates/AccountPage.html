@@ -213,7 +213,7 @@
                             </div>
 
                             <div class="button-detail">
-                                <a href="">
+                                <a href="{{ url_for('invoicePage', id_transaksi=trx.id_transaksi) }}">
                                     <button>Detail</button>
                                 </a>
                             </div>
@@ -225,6 +225,92 @@
             </div>
         </div>
     </div>
+
+    <div class="section-footer">
+        <div class="container-collab">
+            <div class="header-collab">
+                <H3>Join Our Partnership Program</H3>
+                <p>Grow your business with KopiKita. Become a partner and bring premium coffee experience to more people.</p>
+            </div>
+
+            <div class="form-collab">
+                <input type="email" placeholder="Enter your email">
+                <button>Join Now</button>
+            </div>
+        </div>
+        
+        <div class="Container-footer">
+            <div class="header-footer">
+                <div class="icon-footer">
+                    <span class="mdi--instagram"></span>
+                </div>
+                <div class="icon-footer">
+                    <span class="ic--baseline-facebook"></span>
+                </div>
+                <div class="icon-footer">
+                    <span class="ic--baseline-tiktok"></span>
+                </div>
+            </div>
+
+            <div class="main-footer">
+                <div class="content-footer">
+                    <div class="header-content-footer">
+                        <P>Shop</P>
+                        <span class="mingcute--right-fill1"></span>
+                    </div>
+
+                    <div class="overlay-content-footer">
+                        <P>All Products</P>
+                        <p>Best Sellers</p>
+                        <P>New Arrivals</P>
+                        <P>Bundles</P>
+                    </div>
+                </div>
+
+                <div class="content-footer">
+                    <div class="header-content-footer">
+                        <P>Our coffee</P>
+                        <span class="mingcute--right-fill1"></span>
+                    </div>
+
+                    <div class="overlay-content-footer">
+                        <P>All Products</P>
+                        <p>Best Sellers</p>
+                        <P>New Arrivals</P>
+                        <P>Bundles</P>
+                    </div>
+                </div>
+
+                <div class="content-footer">
+                    <div class="header-content-footer">
+                        <p>About KopiKita</p>
+                        <span class="mingcute--right-fill1"></span>
+                    </div>
+
+                    <div class="overlay-content-footer">
+                        <P>All Products</P>
+                        <p>Best Sellers</p>
+                        <P>New Arrivals</P>
+                        <P>Bundles</P>
+                    </div>
+                </div>
+
+                <div class="content-footer">
+                    <div class="header-content-footer">
+                        <P>Support</P>
+                        <span class="mingcute--right-fill1"></span>
+                    </div>
+
+                    <div class="overlay-content-footer">
+                        <P>All Products</P>
+                        <p>Best Sellers</p>
+                        <P>New Arrivals</P>
+                        <P>Bundles</P>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
 
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 

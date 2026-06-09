@@ -213,54 +213,56 @@ def validationAcc():
 @app.route('/navAccount')
 def navAccount():
 
-    if 'user_id' not in session:
-        return redirect('/signinpage')
+    if 'user_id' in session:
 
-    user_id = session['user_id']
+        user_id = session['user_id']
 
-    cursor = db.cursor(dictionary=True)
+        cursor = db.cursor(dictionary=True)
 
-    # Ambil semua transaksi user
-    cursor.execute("""
-        SELECT *
-        FROM tb_transaksi
-        WHERE user_id = %s
-        ORDER BY id_transaksi DESC
-    """, (user_id,))
-
-    transaksi = cursor.fetchall()
-
-    # Ambil produk pertama + jumlah item untuk setiap transaksi
-    for trx in transaksi:
-
+        # Ambil semua transaksi user
         cursor.execute("""
-            SELECT
-                p.nama_product,
-                p.path_img
-            FROM tb_transaksi_detail td
-            JOIN tb_product p
-                ON td.id_product = p.id_product
-            WHERE td.id_transaksi = %s
-            ORDER BY td.id ASC
-        """, (trx['id_transaksi'],))
+            SELECT *
+            FROM tb_transaksi
+            WHERE user_id = %s
+            ORDER BY id_transaksi DESC
+        """, (user_id,))
 
-        products = cursor.fetchall()
+        transaksi = cursor.fetchall()
 
-        if products:
-            trx['nama_product'] = products[0]['nama_product']
-            trx['path_img'] = products[0]['path_img']
-            trx['jumlah_produk'] = len(products)
-        else:
-            trx['nama_product'] = ''
-            trx['path_img'] = ''
-            trx['jumlah_produk'] = 0
+        # Ambil produk pertama + jumlah item
+        for trx in transaksi:
 
-    cursor.close()
+            cursor.execute("""
+                SELECT
+                    p.nama_product,
+                    p.path_img
+                FROM tb_transaksi_detail td
+                JOIN tb_product p
+                    ON td.id_product = p.id_product
+                WHERE td.id_transaksi = %s
+                ORDER BY td.id ASC
+            """, (trx['id_transaksi'],))
 
-    return render_template(
-        'AccountPage.html',
-        transaksi=transaksi
-    )
+            products = cursor.fetchall()
+
+            if products:
+                trx['nama_product'] = products[0]['nama_product']
+                trx['path_img'] = products[0]['path_img']
+                trx['jumlah_produk'] = len(products)
+            else:
+                trx['nama_product'] = ''
+                trx['path_img'] = ''
+                trx['jumlah_produk'] = 0
+
+        cursor.close()
+
+        return render_template(
+            'AccountPage.html',
+            transaksi=transaksi
+        )
+
+    else:
+        return redirect(url_for('signinpage'))
     
 
 @app.route('/add-to-cart', methods=["POST"])
